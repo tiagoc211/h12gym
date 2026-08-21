@@ -8,20 +8,20 @@ export interface CameraPoint {
 export const cameraPath: CameraPoint[] = [
   {
     progress: 0,
-    position: [4.15, 1.66, 11.4],
-    target: [4.0, 1.58, 4.8],
-    fov: 43,
+    position: [4.08, 1.66, 12.7],
+    target: [2.55, 1.58, 4.7],
+    fov: 45,
   },
   {
     progress: 0.1,
-    position: [4.18, 1.66, 8.0],
-    target: [4.02, 1.58, 1.6],
-    fov: 44,
+    position: [4.14, 1.66, 9.2],
+    target: [3.05, 1.58, 1.7],
+    fov: 45,
   },
   {
     progress: 0.2,
     position: [4.22, 1.66, 4.0],
-    target: [4.05, 1.55, -2.7],
+    target: [3.6, 1.55, -2.7],
     fov: 46,
   },
   {
