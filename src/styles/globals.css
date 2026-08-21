@@ -227,6 +227,25 @@ a {
   font-size: clamp(0.85rem, 1.2vw, 1rem);
 }
 
+.scroll-media-facts {
+  list-style: none;
+  margin: 0.28rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.scroll-media-facts li {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(5, 5, 5, 0.42);
+  padding: 0.22rem 0.42rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .scroll-media-card small {
   position: absolute;
   top: 0.8rem;

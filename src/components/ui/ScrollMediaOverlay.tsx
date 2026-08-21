@@ -19,10 +19,10 @@ export function ScrollMediaOverlay() {
   }, [progress])
 
   const style = useMemo(() => {
-    const reveal = smooth(range(progress, 0.13, 0.24))
+    const reveal = smooth(range(progress, 0.015, 0.08))
     const exit = smooth(range(progress, 0.86, 0.98))
     const opacity = Math.max(0, reveal * (1 - exit))
-    const translateY = 34 * (1 - reveal) - 24 * exit
+    const translateY = 22 * (1 - reveal) - 24 * exit
 
     return {
       opacity,
@@ -39,11 +39,14 @@ export function ScrollMediaOverlay() {
 
   const moment = siteContent.scrollMoments[activeIndex] ?? siteContent.scrollMoments[0]
   const photo = siteContent.media.h12Interior
+  const imageSrc = moment.imageSrc ?? photo.src
+  const imageAlt = moment.imageAlt ?? photo.alt
+  const credit = moment.credit ?? photo.credit
 
   return (
     <aside className="scroll-media-overlay" style={style} aria-label="Momentos H12">
       <div className="scroll-media-card">
-        <img src={photo.src} alt={photo.alt} style={imageStyle} />
+        <img src={imageSrc} alt={imageAlt} style={imageStyle} />
         <div className="scroll-media-scrim" />
         <div className="scroll-media-copy">
           <p>
@@ -51,8 +54,15 @@ export function ScrollMediaOverlay() {
           </p>
           <h2>{moment.title}</h2>
           <span>{moment.body}</span>
+          {moment.facts ? (
+            <ul className="scroll-media-facts">
+              {moment.facts.map((fact) => (
+                <li key={fact}>{fact}</li>
+              ))}
+            </ul>
+          ) : null}
         </div>
-        <small>{photo.credit}</small>
+        <small>{credit}</small>
       </div>
     </aside>
   )

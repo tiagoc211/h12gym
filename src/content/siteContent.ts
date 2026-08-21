@@ -32,6 +32,10 @@ export interface ScrollMoment {
   title: string
   body: string
   imagePosition: string
+  imageSrc?: string
+  imageAlt?: string
+  credit?: string
+  facts?: string[]
 }
 
 export interface TrainingArea extends ContentFlag {
@@ -102,7 +106,7 @@ export const siteContent = {
   brand: {
     name: 'H12 GYM',
     locationShort: 'ALGARVE',
-    instagramUrl: '',
+    instagramUrl: 'https://www.instagram.com/h12_gym/',
     facebookUrl: 'https://www.facebook.com/profile.php?id=100077128833099',
   },
   hero: {
@@ -119,9 +123,16 @@ export const siteContent = {
   } satisfies StorylineContent,
   media: {
     h12Interior: {
-      src: 'https://cdns3.fitfit.fitness/pt/media/items/originals/2607-H12-Gym-Y46to.jpg',
+      src: '/media/h12-source/h12-source-01.jpg',
       alt: 'Fotografia pública do interior do H12 Gym em São Bartolomeu de Messines.',
-      credit: 'Fonte: Ginasios.Fitness',
+      credit: 'Fonte: csmarketglasses.com',
+      sourceNote:
+        'Imagem pública usada apenas como referência no protótipo. Substituir por assets aprovados pelo H12 antes de publicação final.',
+    } satisfies OnlinePhoto,
+    h12Floor: {
+      src: '/media/h12-source/h12-source-02.jpg',
+      alt: 'Fotografia pública do H12 Gym com relva, cardio e zona de máquinas.',
+      credit: 'Fonte: csmarketglasses.com',
       sourceNote:
         'Imagem pública usada apenas como referência no protótipo. Substituir por assets aprovados pelo H12 antes de publicação final.',
     } satisfies OnlinePhoto,
@@ -130,26 +141,38 @@ export const siteContent = {
     {
       id: 'space',
       index: '01',
-      kicker: 'H12 ALGARVE',
-      title: 'MAIS DO QUE\nUM CLUBE.',
-      body: 'A presença pública aponta para H12 em Messines e Armação de Pêra.',
+      kicker: 'ENTRA NO H12',
+      title: 'TREINA\nÀ TUA MANEIRA.',
+      body: 'Informação pública do mockup H12: Messines, Armação de Pêra e uma experiência focada em treino completo.',
       imagePosition: 'center center',
+      imageSrc: '/media/h12-source/h12-source-02.jpg',
+      imageAlt: 'Vista pública do espaço H12 com relva, máquinas e cardio.',
+      credit: 'csmarketglasses.com',
+      facts: ['MESSINES', 'ARMAÇÃO DE PÊRA', '@h12_gym'],
     },
     {
       id: 'turf',
       index: '02',
-      kicker: 'TREINO',
-      title: 'ZONAS CLARAS.\nSEM RUÍDO.',
-      body: 'A faixa verde ajuda a dar identidade ao layout: movimento, circulação e treino prático.',
+      kicker: 'O ESPAÇO',
+      title: 'UM ESPAÇO\nPARA TREINAR.',
+      body: 'Relva, cardio, máquinas e zonas abertas dão leitura real ao percurso pelo ginásio.',
       imagePosition: 'left center',
+      imageSrc: '/media/h12-source/h12-source-02.jpg',
+      imageAlt: 'Fotografia pública do H12 com relva lateral e equipamentos.',
+      credit: 'csmarketglasses.com',
+      facts: ['CARDIO', 'RELVA', 'MÁQUINAS'],
     },
     {
       id: 'machines',
       index: '03',
-      kicker: 'MUSCULAÇÃO',
-      title: 'MÁQUINAS.\nPESOS.\nROTINA.',
-      body: 'O site deve mostrar o espaço como ele é: direto, equipado e próximo.',
-      imagePosition: 'right center',
+      kicker: 'TREINO COMPLETO',
+      title: 'MUSCULAÇÃO.\nFUNCIONAL.\nAULAS.',
+      body: 'A estrutura de conteúdo passa a introduzir serviços logo no início da caminhada 3D.',
+      imagePosition: 'center center',
+      imageSrc: '/media/h12-source/h12-source-01.jpg',
+      imageAlt: 'Fotografia pública do interior H12 com máquinas e teto técnico.',
+      credit: 'csmarketglasses.com',
+      facts: ['MUSCULAÇÃO', 'TREINO FUNCIONAL', 'ACOMPANHAMENTO'],
     },
   ] satisfies ScrollMoment[],
   space: {
@@ -273,7 +296,7 @@ export const siteContent = {
       mapUrl:
         'https://www.google.com/maps/search/?api=1&query=H12%20Gym%20R.%20do%20Gr%C3%A9s%2015%208375-009%20S%C3%A3o%20Bartolomeu%20de%20Messines',
       mapUrlConfirmed: true,
-      imageSrc: 'https://cdns3.fitfit.fitness/pt/media/items/originals/2607-H12-Gym-Y46to.jpg',
+      imageSrc: '/media/h12-source/h12-source-02.jpg',
       imageAlt: 'Fotografia pública do interior do H12 Gym Messines.',
       imagePosition: 'center center',
       sourceNote: 'Informação alinhada com Ginasios.Fitness, Cylex, Guia Empresas e Top-Rated.',
@@ -315,30 +338,39 @@ export const siteContent = {
   gallery: [
     {
       id: 'gallery-1',
-      src: 'https://cdns3.fitfit.fitness/pt/media/items/originals/2607-H12-Gym-Y46to.jpg',
-      alt: 'Fotografia pública do interior do H12 Gym com máquinas e zona de treino.',
-      label: 'ESPAÇO',
-      credit: 'Ginasios.Fitness',
+      src: '/media/h12-source/h12-source-02.jpg',
+      alt: 'Fotografia pública do H12 Gym com relva, cardio e máquinas.',
+      label: 'RELVA / CARDIO',
+      credit: 'csmarketglasses.com',
       objectPosition: 'center center',
-      sourceNote: 'Imagem pública remota para protótipo.',
+      sourceNote: 'Imagem pública local extraída do mockup de referência.',
     },
     {
       id: 'gallery-2',
-      src: 'https://cdns3.fitfit.fitness/pt/media/items/originals/2607-H12-Gym-Y46to.jpg',
-      alt: 'Crop da fotografia pública do H12 Gym focado na faixa de treino.',
-      label: 'TURF / TREINO',
-      credit: 'Ginasios.Fitness',
-      objectPosition: 'left center',
-      sourceNote: 'Crop de imagem pública remota para protótipo.',
+      src: '/media/h12-source/h12-source-01.jpg',
+      alt: 'Fotografia pública do interior do H12 Gym com máquinas e zona de treino.',
+      label: 'MÁQUINAS',
+      credit: 'csmarketglasses.com',
+      objectPosition: 'center center',
+      sourceNote: 'Imagem pública local extraída do mockup de referência.',
     },
     {
       id: 'gallery-3',
-      src: 'https://cdns3.fitfit.fitness/pt/media/items/originals/2607-H12-Gym-Y46to.jpg',
-      alt: 'Crop da fotografia pública do H12 Gym focado em máquinas e cardio.',
-      label: 'MÁQUINAS',
-      credit: 'Ginasios.Fitness',
+      src: '/media/h12-source/h12-source-02.jpg',
+      alt: 'Crop da fotografia pública do H12 Gym com foco na relva.',
+      label: 'ESPAÇO',
+      credit: 'csmarketglasses.com',
+      objectPosition: 'left center',
+      sourceNote: 'Crop de imagem pública local para protótipo.',
+    },
+    {
+      id: 'gallery-4',
+      src: '/media/h12-source/h12-source-01.jpg',
+      alt: 'Crop da fotografia pública do H12 Gym com foco em máquinas.',
+      label: 'TREINO COMPLETO',
+      credit: 'csmarketglasses.com',
       objectPosition: 'right center',
-      sourceNote: 'Crop de imagem pública remota para protótipo.',
+      sourceNote: 'Crop de imagem pública local para protótipo.',
     },
   ] satisfies GalleryItem[],
   memberships: {

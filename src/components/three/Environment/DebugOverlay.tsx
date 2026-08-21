@@ -4,7 +4,7 @@ import { Vector3 } from 'three'
 import { cameraPath } from '../../../config/cameraPath'
 import { gymLayout } from '../../../config/gymLayout'
 
-const DEBUG = import.meta.env.DEV
+const DEBUG = import.meta.env.DEV && import.meta.env.VITE_SHOW_3D_DEBUG === 'true'
 
 export function DebugOverlay() {
   const pathGeometry = useMemo(() => {
@@ -18,13 +18,6 @@ export function DebugOverlay() {
   return (
     <group>
       <Line points={pathGeometry} color="#f2c230" lineWidth={1} transparent opacity={0.6} />
-
-      {cameraPath.map((point) => (
-        <mesh key={point.progress} position={point.position}>
-          <sphereGeometry args={[0.16, 12, 12]} />
-          <meshBasicMaterial color="#f2c230" />
-        </mesh>
-      ))}
 
       <mesh position={gymLayout.restrictedRoom.position}>
         <boxGeometry args={gymLayout.restrictedRoom.size} />

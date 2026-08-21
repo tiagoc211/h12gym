@@ -52,6 +52,20 @@ export const gymLayout = {
       { id: 'bench-legs', position: [-5.8, 0.42, -18.1], rotation: [0, -0.18, 0] },
       { id: 'bench-far', position: [1.2, 0.42, -23.4], rotation: [0, 0.34, 0] },
     ] satisfies EquipmentBlock[],
+    treadmills: [
+      { id: 'cardio-treadmill-1', position: [7.2, 0.62, 5.2], rotation: [0, -0.1, 0] },
+      { id: 'cardio-treadmill-2', position: [4.6, 0.62, 5.45], rotation: [0, -0.04, 0] },
+      { id: 'cardio-treadmill-3', position: [2.0, 0.62, 5.55], rotation: [0, 0.03, 0] },
+    ] satisfies EquipmentBlock[],
+    dumbbellRacks: [
+      { id: 'upper-dumbbell-rack', position: [8.7, 0.55, 4.2], rotation: [0, -0.04, 0] },
+      { id: 'lower-dumbbell-rack', position: [-8.3, 0.55, -10.6], rotation: [0, 0.1, 0] },
+    ] satisfies EquipmentBlock[],
+    freeDumbbells: [
+      { id: 'compact-dumbbell-entry', position: [-3.6, 0.24, 1.35], rotation: [0, 0.45, 0] },
+      { id: 'compact-dumbbell-turf', position: [-6.4, 0.24, -6.25], rotation: [0, -0.32, 0] },
+      { id: 'compact-dumbbell-far', position: [0.15, 0.24, -22.0], rotation: [0, 0.78, 0] },
+    ] satisfies EquipmentBlock[],
     machines: [
       { id: 'upper-cable', position: [2.5, 1.15, 2.4], rotation: [0, -0.12, 0] },
       { id: 'upper-machine-1', position: [6.9, 1.05, 0.6], rotation: [0, 0.2, 0] },
