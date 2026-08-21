@@ -2,42 +2,56 @@ export interface CameraPoint {
   progress: number
   position: [number, number, number]
   target: [number, number, number]
+  fov: number
 }
 
 export const cameraPath: CameraPoint[] = [
   {
     progress: 0,
-    position: [0.2, 1.75, 8.8],
-    target: [0, 1.5, 2],
+    position: [0.12, 1.86, 10.8],
+    target: [0, 1.7, 4],
+    fov: 47,
   },
   {
-    progress: 0.15,
-    position: [0.4, 1.65, 3.8],
-    target: [-0.2, 1.45, -3],
+    progress: 0.08,
+    position: [0.12, 1.83, 8.9],
+    target: [0, 1.65, 2],
+    fov: 49,
   },
   {
-    progress: 0.3,
-    position: [-1.4, 1.7, -3.2],
-    target: [0.5, 1.5, -10],
+    progress: 0.2,
+    position: [0.22, 1.8, 5],
+    target: [0.1, 1.62, -1.4],
+    fov: 53,
   },
   {
-    progress: 0.5,
-    position: [1.8, 1.9, -13.5],
-    target: [0.2, 1.6, -20],
+    progress: 0.34,
+    position: [0.18, 1.74, 0.8],
+    target: [0.1, 1.56, -6.8],
+    fov: 56,
   },
   {
-    progress: 0.7,
-    position: [4.2, 1.8, -24],
-    target: [1.2, 1.5, -31],
+    progress: 0.48,
+    position: [-0.45, 1.7, -6],
+    target: [0.45, 1.54, -13.2],
+    fov: 60,
   },
   {
-    progress: 0.85,
-    position: [1.1, 1.7, -35],
-    target: [-1.4, 1.5, -42],
+    progress: 0.62,
+    position: [1.65, 1.82, -16.8],
+    target: [0.62, 1.6, -24.5],
+    fov: 50,
+  },
+  {
+    progress: 0.8,
+    position: [2.42, 1.88, -28.8],
+    target: [1.35, 1.64, -36.2],
+    fov: 48,
   },
   {
     progress: 1,
-    position: [-1.8, 1.85, -47],
-    target: [0, 1.6, -55],
+    position: [-0.2, 1.85, -41.8],
+    target: [-1.1, 1.58, -49.5],
+    fov: 50,
   },
 ]

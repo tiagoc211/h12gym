@@ -1,4 +1,7 @@
 import { Experience } from './components/three/Experience'
+import { HeroOverlay } from './components/ui/HeroOverlay'
+import { ScrollIndicator } from './components/ui/ScrollIndicator'
+import { StrengthOverlay } from './components/ui/StrengthOverlay'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
 
 function App() {
@@ -10,31 +13,17 @@ function App() {
         <Experience />
       </div>
 
+      <div className="overlay-layer">
+        <HeroOverlay />
+        <StrengthOverlay />
+        <ScrollIndicator />
+      </div>
+
       <main className="scroll-content">
-        <section className="panel hero">
-          <h1>H12 GYM</h1>
-          <p>SCROLL TO ENTER</p>
-        </section>
-
-        <section className="panel">
-          <h2>STRENGTH</h2>
-        </section>
-
-        <section className="panel">
-          <h2>PERFORMANCE</h2>
-        </section>
-
-        <section className="panel">
-          <h2>MOVEMENT</h2>
-        </section>
-
-        <section className="panel">
-          <h2>COMMUNITY</h2>
-        </section>
-
-        <section className="panel final">
-          <h2>H12</h2>
-        </section>
+        <section className="scroll-step hero-step" />
+        <section className="scroll-step entry-step" />
+        <section className="scroll-step strength-step" />
+        <section className="scroll-step transition-step" />
       </main>
     </>
   )
