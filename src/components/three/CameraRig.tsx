@@ -14,6 +14,27 @@ function clamp(value: number): number {
   return Math.min(1, Math.max(0, value))
 }
 
+function mapScrollToCurveProgress(progress: number): number {
+  const points = cameraPath
+  const clamped = clamp(progress)
+
+  for (let index = 0; index < points.length - 1; index += 1) {
+    const current = points[index]
+    const next = points[index + 1]
+    const inSegment = clamped >= current.progress && clamped <= next.progress
+
+    if (!inSegment) {
+      continue
+    }
+
+    const segmentLength = next.progress - current.progress || 1
+    const alpha = (clamped - current.progress) / segmentLength
+    return (index + alpha) / (points.length - 1)
+  }
+
+  return clamped
+}
+
 function interpolateFov(progress: number): number {
   const points = cameraPath
   const clamped = clamp(progress)
@@ -109,7 +130,7 @@ export function CameraRig() {
   useFrame((state, delta) => {
     const activeCamera = cameraRef.current
     const scroll = getScrollProgress()
-    const curveProgress = MathUtils.smoothstep(scroll, 0, 1)
+    const curveProgress = mapScrollToCurveProgress(MathUtils.smoothstep(scroll, 0, 1))
 
     positionCurve.getPointAt(curveProgress, positionSample.current)
     targetCurve.getPointAt(curveProgress, targetSample.current)
@@ -119,15 +140,15 @@ export function CameraRig() {
     const cursorY = isFinePointer.current ? smoothPointer.current.y : 0
     const mobileMultiplier = isMobile.current ? 0.4 : 1
 
-    const wave = Math.sin(state.clock.elapsedTime * 0.85) * 0.05
+    const wave = Math.sin(state.clock.elapsedTime * 0.85) * 0.025
     desiredPosition.current.set(
-      positionSample.current.x + cursorX * 0.24 * mobileMultiplier,
-      positionSample.current.y - cursorY * 0.12 * mobileMultiplier + wave,
+      positionSample.current.x + cursorX * 0.05 * mobileMultiplier,
+      positionSample.current.y - cursorY * 0.025 * mobileMultiplier + wave,
       positionSample.current.z,
     )
     desiredTarget.current.set(
-      targetSample.current.x + cursorX * 0.16 * mobileMultiplier,
-      targetSample.current.y - cursorY * 0.08 * mobileMultiplier + wave * 0.35,
+      targetSample.current.x + cursorX * 0.04 * mobileMultiplier,
+      targetSample.current.y - cursorY * 0.02 * mobileMultiplier + wave * 0.35,
       targetSample.current.z,
     )
 
@@ -136,7 +157,7 @@ export function CameraRig() {
     smoothedTarget.current.lerp(desiredTarget.current, damping)
     activeCamera.lookAt(smoothedTarget.current)
 
-    const roll = cursorX * -0.015 * mobileMultiplier + Math.sin(state.clock.elapsedTime * 0.42) * 0.004
+    const roll = cursorX * -0.006 * mobileMultiplier + Math.sin(state.clock.elapsedTime * 0.42) * 0.002
     activeCamera.rotation.z = MathUtils.lerp(
       activeCamera.rotation.z,
       roll,
@@ -144,7 +165,7 @@ export function CameraRig() {
     )
 
     const baseFov = interpolateFov(scroll)
-    const desiredFov = baseFov + (isMobile.current ? 4 : 0) + cursorY * 0.65 * mobileMultiplier
+    const desiredFov = baseFov + (isMobile.current ? 5 : 0) + cursorY * 0.18 * mobileMultiplier
     activeCamera.fov = MathUtils.lerp(activeCamera.fov, desiredFov, damping * 0.8)
     activeCamera.updateProjectionMatrix()
   })

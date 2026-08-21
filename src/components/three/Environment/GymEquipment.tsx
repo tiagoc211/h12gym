@@ -1,67 +1,128 @@
-type Block = {
-  position: [number, number, number]
-  scale: [number, number, number]
-}
+import type { EquipmentBlock } from '../../../config/gymLayout'
+import { gymLayout } from '../../../config/gymLayout'
 
-const racks: Block[] = [
-  { position: [-4.4, 1.3, -15], scale: [1.8, 2.6, 1.4] },
-  { position: [4.3, 1.3, -16.5], scale: [1.8, 2.6, 1.4] },
-  { position: [-3.8, 1.3, -21.8], scale: [1.8, 2.6, 1.4] },
-  { position: [4.6, 1.3, -23], scale: [1.8, 2.6, 1.4] },
-  { position: [-4.2, 1.3, -29.2], scale: [1.8, 2.6, 1.4] },
-  { position: [3.9, 1.3, -31], scale: [1.8, 2.6, 1.4] },
-]
-
-const benches: Block[] = [
-  { position: [-1.4, 0.4, -13.2], scale: [2.1, 0.35, 0.8] },
-  { position: [1.8, 0.4, -18.6], scale: [2, 0.35, 0.8] },
-  { position: [0.2, 0.4, -24.4], scale: [2.3, 0.35, 0.8] },
-  { position: [-1.1, 0.4, -31.2], scale: [2.1, 0.35, 0.8] },
-]
-
-const machines: Block[] = [
-  { position: [-0.8, 0.95, -10.8], scale: [1.2, 1.9, 1.1] },
-  { position: [2.3, 1.02, -14.2], scale: [1.3, 2.05, 1.2] },
-  { position: [-2.2, 1.06, -20], scale: [1.35, 2.1, 1.3] },
-  { position: [1.5, 1.01, -27], scale: [1.2, 2, 1.15] },
-  { position: [-2.3, 1.04, -34.4], scale: [1.35, 2.1, 1.35] },
-]
-
-function Rack({ position, scale }: Block) {
+function Rack({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
   return (
-    <group position={position}>
-      <mesh>
-        <boxGeometry args={scale} />
-        <meshStandardMaterial color="#1d1d1d" roughness={0.56} metalness={0.56} />
+    <group position={position} rotation={rotation}>
+      {[
+        [-0.82, 0, -0.58],
+        [0.82, 0, -0.58],
+        [-0.82, 0, 0.58],
+        [0.82, 0, 0.58],
+      ].map(([x, y, z]) => (
+        <mesh key={`${x}-${z}`} position={[x, y, z]}>
+          <boxGeometry args={[0.12, 2.35, 0.12]} />
+          <meshStandardMaterial color="#1d1d1d" roughness={0.5} metalness={0.62} />
+        </mesh>
+      ))}
+
+      <mesh position={[0, 1.12, -0.58]}>
+        <boxGeometry args={[1.78, 0.12, 0.12]} />
+        <meshStandardMaterial color="#2a2a2a" roughness={0.44} metalness={0.64} />
       </mesh>
-      <mesh position={[0, scale[1] / 2 + 0.28, 0]}>
-        <boxGeometry args={[scale[0] * 0.94, 0.12, scale[2] * 0.94]} />
+      <mesh position={[0, 1.12, 0.58]}>
+        <boxGeometry args={[1.78, 0.12, 0.12]} />
+        <meshStandardMaterial color="#2a2a2a" roughness={0.44} metalness={0.64} />
+      </mesh>
+      <mesh position={[0, 0.08, 0]}>
+        <boxGeometry args={[2.1, 0.1, 1.55]} />
+        <meshStandardMaterial color="#111111" roughness={0.9} metalness={0.12} />
+      </mesh>
+      <mesh position={[0, 1.5, 0]}>
+        <boxGeometry args={[1.95, 0.08, 0.08]} />
         <meshStandardMaterial color="#f2c230" roughness={0.3} metalness={0.52} />
       </mesh>
     </group>
   )
 }
 
+function Bench({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
+  return (
+    <group position={position} rotation={rotation}>
+      <mesh position={[0, 0.08, 0]}>
+        <boxGeometry args={[1.9, 0.12, 0.42]} />
+        <meshStandardMaterial color="#262626" roughness={0.94} metalness={0.06} />
+      </mesh>
+      <mesh position={[0.45, 0.32, 0]}>
+        <boxGeometry args={[1.05, 0.18, 0.48]} />
+        <meshStandardMaterial color="#303030" roughness={0.88} metalness={0.08} />
+      </mesh>
+      <mesh position={[-0.58, 0.55, 0]} rotation={[0, 0, -0.52]}>
+        <boxGeometry args={[1.1, 0.18, 0.48]} />
+        <meshStandardMaterial color="#2a2a2a" roughness={0.9} metalness={0.08} />
+      </mesh>
+      <mesh position={[0, -0.08, 0]}>
+        <boxGeometry args={[1.42, 0.08, 0.1]} />
+        <meshStandardMaterial color="#171717" roughness={0.55} metalness={0.55} />
+      </mesh>
+    </group>
+  )
+}
+
+function MachineBlock({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
+  return (
+    <group position={position} rotation={rotation}>
+      <mesh position={[0, 0.08, 0]}>
+        <boxGeometry args={[1.45, 0.16, 1.2]} />
+        <meshStandardMaterial color="#161616" roughness={0.86} metalness={0.12} />
+      </mesh>
+      <mesh position={[0, 0.94, -0.44]}>
+        <boxGeometry args={[1.28, 1.75, 0.18]} />
+        <meshStandardMaterial color="#303030" roughness={0.48} metalness={0.46} />
+      </mesh>
+      <mesh position={[0, 0.52, 0.12]}>
+        <boxGeometry args={[0.76, 0.24, 0.7]} />
+        <meshStandardMaterial color="#242424" roughness={0.88} metalness={0.08} />
+      </mesh>
+      <mesh position={[0, 1.72, -0.44]}>
+        <boxGeometry args={[1.44, 0.12, 0.22]} />
+        <meshStandardMaterial color="#f2c230" roughness={0.34} metalness={0.48} />
+      </mesh>
+    </group>
+  )
+}
+
+function DumbbellRun() {
+  return (
+    <group position={[8.7, 0.46, 4.2]} rotation={[0, -0.04, 0]}>
+      <mesh position={[0, 0.1, 0]}>
+        <boxGeometry args={[0.32, 0.28, 6.8]} />
+        <meshStandardMaterial color="#191919" roughness={0.58} metalness={0.5} />
+      </mesh>
+      {[-3, -2.15, -1.3, -0.45, 0.4, 1.25, 2.1, 2.95].map((z) => (
+        <group key={z} position={[0, 0.34, z]}>
+          <mesh position={[-0.2, 0, 0]}>
+            <boxGeometry args={[0.22, 0.22, 0.42]} />
+            <meshStandardMaterial color="#2b2b2b" roughness={0.44} metalness={0.58} />
+          </mesh>
+          <mesh position={[0.2, 0, 0]}>
+            <boxGeometry args={[0.22, 0.22, 0.42]} />
+            <meshStandardMaterial color="#2b2b2b" roughness={0.44} metalness={0.58} />
+          </mesh>
+        </group>
+      ))}
+    </group>
+  )
+}
+
 export function GymEquipment() {
+  const { equipment } = gymLayout
+
   return (
     <group>
-      {racks.map((rack) => (
-        <Rack key={rack.position.join('-')} {...rack} />
+      {equipment.racks.map((rack) => (
+        <Rack key={rack.id} {...rack} />
       ))}
 
-      {benches.map((bench) => (
-        <mesh key={bench.position.join('-')} position={bench.position}>
-          <boxGeometry args={bench.scale} />
-          <meshStandardMaterial color="#282828" roughness={0.94} metalness={0.07} />
-        </mesh>
+      {equipment.benches.map((bench) => (
+        <Bench key={bench.id} {...bench} />
       ))}
 
-      {machines.map((machine) => (
-        <mesh key={machine.position.join('-')} position={machine.position}>
-          <boxGeometry args={machine.scale} />
-          <meshStandardMaterial color="#343434" roughness={0.48} metalness={0.44} />
-        </mesh>
+      {equipment.machines.map((machine) => (
+        <MachineBlock key={machine.id} {...machine} />
       ))}
+
+      <DumbbellRun />
     </group>
   )
 }

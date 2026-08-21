@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { siteContent } from '../../content/siteContent'
 import { useScrollProgress } from '../../hooks/useScrollProgress'
 import { range, smooth } from './overlayUtils'
 
@@ -15,7 +16,7 @@ export function ScrollIndicator() {
 
   return (
     <aside className="scroll-indicator" style={style}>
-      SCROLL TO ENTER
+      {siteContent.hero.scrollHint}
     </aside>
   )
 }

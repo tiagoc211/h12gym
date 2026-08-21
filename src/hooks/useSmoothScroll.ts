@@ -12,10 +12,14 @@ function clamp(value: number): number {
 
 export function useSmoothScroll(): void {
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
+
     const lenis = new Lenis({
-      smoothWheel: true,
+      smoothWheel: !prefersReducedMotion,
       syncTouch: true,
-      duration: 1.22,
+      duration: prefersReducedMotion ? 0.3 : 1.22,
       touchMultiplier: 1,
     })
 
@@ -43,7 +47,8 @@ export function useSmoothScroll(): void {
       scrub: 1.25,
       onUpdate: (self) => {
         timeline.progress(clamp(self.progress))
-        const progress = clamp(driver.value)
+        const cinematicSpan = 0.42
+        const progress = clamp(driver.value / cinematicSpan)
         setScrollProgress(progress)
         document.documentElement.style.setProperty(
           '--scroll-progress',

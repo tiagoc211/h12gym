@@ -1,63 +1,84 @@
 import { SignPanel } from './SignPanel'
+import { gymLayout } from '../../../config/gymLayout'
+import { Ceiling } from './Ceiling'
+import { RestrictedRoom } from './RestrictedRoom'
+import { TurfZone } from './TurfZone'
 
-const pillarZ = [-2, -8, -14, -20, -26, -32, -38] as const
+const pillarZ = [5, -2, -9, -16, -23, -30] as const
 const foregroundBars = [
-  [-1.28, 1.7, 7.4],
-  [1.36, 1.45, 6.6],
-  [-0.95, 1.25, 5.8],
+  [-8.25, 1.65, 5.25],
+  [-6.7, 1.5, 1.8],
+  [-4.85, 1.4, -6.2],
 ] as const
 
 export function Architecture() {
+  const { shell } = gymLayout
+
   return (
     <group>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, -20]}>
-        <planeGeometry args={[20, 130]} />
-        <meshStandardMaterial color="#090909" roughness={0.92} metalness={0.06} />
+      <mesh position={[shell.center[0], -0.035, shell.center[2]]}>
+        <boxGeometry args={[shell.width, 0.07, shell.length]} />
+        <meshStandardMaterial color="#080808" roughness={0.95} metalness={0.04} />
       </mesh>
 
-      <mesh position={[0, 4.4, -20]}>
-        <boxGeometry args={[20, 0.36, 130]} />
-        <meshStandardMaterial color="#111111" roughness={0.86} metalness={0.14} />
-      </mesh>
+      <TurfZone />
 
-      <mesh position={[-10, 2.2, -20]}>
-        <boxGeometry args={[0.42, 4.4, 130]} />
+      <mesh position={[0, 2.3, 13]}>
+        <boxGeometry args={[shell.width, shell.wallHeight, 0.34]} />
         <meshStandardMaterial color="#0c0c0c" roughness={0.88} metalness={0.12} />
       </mesh>
 
-      <mesh position={[10, 2.2, -20]}>
-        <boxGeometry args={[0.42, 4.4, 130]} />
+      <mesh position={[0, 2.3, -35]}>
+        <boxGeometry args={[shell.width, shell.wallHeight, 0.34]} />
         <meshStandardMaterial color="#0c0c0c" roughness={0.88} metalness={0.12} />
       </mesh>
 
-      <mesh position={[0, 2.15, -5.6]}>
-        <boxGeometry args={[8.2, 4.2, 0.5]} />
-        <meshStandardMaterial color="#141414" roughness={0.82} metalness={0.2} />
+      <mesh position={[11, 2.3, -11]}>
+        <boxGeometry args={[0.34, shell.wallHeight, shell.length]} />
+        <meshStandardMaterial color="#0c0c0c" roughness={0.88} metalness={0.12} />
       </mesh>
 
-      <mesh position={[0, 2.15, -8.2]}>
-        <boxGeometry args={[6.1, 4.2, 0.5]} />
-        <meshStandardMaterial color="#171717" roughness={0.8} metalness={0.24} />
+      <mesh position={[-11, 2.3, -14.75]}>
+        <boxGeometry args={[0.34, shell.wallHeight, 40.5]} />
+        <meshStandardMaterial color="#0c0c0c" roughness={0.88} metalness={0.12} />
       </mesh>
 
-      <mesh position={[-3.05, 2.15, -6.9]}>
-        <boxGeometry args={[0.5, 4.2, 3.4]} />
-        <meshStandardMaterial color="#171717" roughness={0.81} metalness={0.22} />
+      <mesh position={[-11, 2.3, 11.75]}>
+        <boxGeometry args={[0.34, shell.wallHeight, 2.5]} />
+        <meshStandardMaterial color="#0c0c0c" roughness={0.88} metalness={0.12} />
       </mesh>
 
-      <mesh position={[3.05, 2.15, -6.9]}>
-        <boxGeometry args={[0.5, 4.2, 3.4]} />
-        <meshStandardMaterial color="#171717" roughness={0.81} metalness={0.22} />
+      <group position={[-11.2, 2.25, 8]}>
+        <mesh position={[0, 0, -2.55]}>
+          <boxGeometry args={[0.42, 4.5, 0.22]} />
+          <meshStandardMaterial color="#f2c230" roughness={0.46} metalness={0.22} />
+        </mesh>
+        <mesh position={[0, 0, 2.55]}>
+          <boxGeometry args={[0.42, 4.5, 0.22]} />
+          <meshStandardMaterial color="#f2c230" roughness={0.46} metalness={0.22} />
+        </mesh>
+        <mesh position={[0, 2.25, 0]}>
+          <boxGeometry args={[0.42, 0.22, 5.25]} />
+          <meshStandardMaterial color="#f2c230" roughness={0.46} metalness={0.22} />
+        </mesh>
+      </group>
+
+      <mesh position={[-13.8, -0.04, 8]}>
+        <boxGeometry args={[5.4, 0.06, 7.2]} />
+        <meshStandardMaterial color="#060606" roughness={0.96} metalness={0.02} />
       </mesh>
+
+      <RestrictedRoom />
+      <Ceiling />
 
       {pillarZ.map((z) => (
         <group key={z}>
-          <mesh position={[-7.2, 2.2, z]}>
-            <boxGeometry args={[0.48, 4.4, 0.48]} />
+          <mesh position={[-8.8, 2.25, z]}>
+            <boxGeometry args={[0.42, 4.5, 0.42]} />
             <meshStandardMaterial color="#1b1b1b" roughness={0.72} metalness={0.4} />
           </mesh>
-          <mesh position={[7.2, 2.2, z]}>
-            <boxGeometry args={[0.48, 4.4, 0.48]} />
+          <mesh position={[8.8, 2.25, z]}>
+            <boxGeometry args={[0.42, 4.5, 0.42]} />
             <meshStandardMaterial color="#1b1b1b" roughness={0.72} metalness={0.4} />
           </mesh>
         </group>
@@ -70,12 +91,22 @@ export function Architecture() {
         </mesh>
       ))}
 
-      <group position={[-5.4, 2.75, -18.5]} rotation={[0, Math.PI / 2.8, 0]}>
-        <SignPanel primary="H12" secondary="TRAIN BEYOND." width={4.4} />
+      <mesh position={[10.78, 2.1, -2.2]}>
+        <boxGeometry args={[0.04, 1.9, 5.8]} />
+        <meshStandardMaterial color="#151515" roughness={0.38} metalness={0.78} />
+      </mesh>
+
+      <mesh position={[10.78, 2.1, -24.2]}>
+        <boxGeometry args={[0.04, 1.9, 6.8]} />
+        <meshStandardMaterial color="#151515" roughness={0.38} metalness={0.78} />
+      </mesh>
+
+      <group position={[-10.72, 2.55, 8]} rotation={[0, Math.PI / 2, 0]}>
+        <SignPanel primary="H12" secondary="MESSINES" width={4.2} />
       </group>
 
-      <group position={[5.6, 2.45, -24.8]} rotation={[0, -Math.PI / 2.4, 0]}>
-        <SignPanel primary="NO EXCUSES" secondary="STRENGTH AREA" width={4.9} />
+      <group position={[10.72, 2.55, -7.4]} rotation={[0, -Math.PI / 2, 0]}>
+        <SignPanel primary="H12" secondary="MOVE WITH PURPOSE." width={5.1} />
       </group>
     </group>
   )

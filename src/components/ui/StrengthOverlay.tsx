@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { siteContent } from '../../content/siteContent'
 import { useScrollProgress } from '../../hooks/useScrollProgress'
 import { range, smooth } from './overlayUtils'
 
@@ -24,13 +25,13 @@ export function StrengthOverlay() {
   return (
     <section className="strength-overlay" style={style}>
       <p>02 / H12</p>
-      <h2>STRENGTH</h2>
+      <h2>{siteContent.space.areas[0]?.title ?? 'STRENGTH'}</h2>
       <p className="strength-lines">
-        BUILD.
+        TREINO
         <br />
-        PUSH.
+        SEM
         <br />
-        REPEAT.
+        ATALHOS.
       </p>
     </section>
   )

@@ -1,5 +1,7 @@
 import { useMemo } from 'react'
+import { siteContent } from '../../content/siteContent'
 import { useScrollProgress } from '../../hooks/useScrollProgress'
+import { CTAButton } from './CTAButton'
 import { range, smooth } from './overlayUtils'
 
 export function HeroOverlay() {
@@ -20,9 +22,15 @@ export function HeroOverlay() {
 
   return (
     <header className="hero-overlay" style={style}>
-      <p className="hero-kicker">01 / H12</p>
-      <h1>H12</h1>
-      <p className="hero-subtitle">TRAIN BEYOND.</p>
+      <p className="hero-kicker">{siteContent.hero.cityLabel}</p>
+      <h1>{siteContent.hero.displayTitle}</h1>
+      <p className="hero-subtitle">{siteContent.hero.lines.join(' ')}</p>
+      <div className="hero-actions">
+        <CTAButton href="#conceito">{siteContent.hero.primaryCta}</CTAButton>
+        <CTAButton href="#planos" variant="ghost">
+          {siteContent.hero.secondaryCta}
+        </CTAButton>
+      </div>
     </header>
   )
 }

@@ -1,6 +1,6 @@
 import { Environment, Lightformer } from '@react-three/drei'
 
-const stripZ = [-1.2, -7, -12.8, -18.6, -24.4, -30.2, -36] as const
+const stripZ = [7.5, 1.4, -4.7, -10.8, -16.9, -23, -29.1] as const
 
 export function GymLights() {
   return (
@@ -8,50 +8,67 @@ export function GymLights() {
       <Environment resolution={64}>
         <Lightformer
           form="rect"
-          intensity={1.8}
+          intensity={1.35}
           color="#ffffff"
-          position={[0, 6, -14]}
-          scale={[16, 1.1, 1]}
+          position={[0, 5.1, -7]}
+          scale={[16, 0.8, 1]}
         />
         <Lightformer
           form="rect"
-          intensity={1.1}
+          intensity={0.75}
           color="#f2c230"
-          position={[-8, 2.8, -22]}
+          position={[-10.5, 2.8, 7.2]}
           rotation={[0, Math.PI / 2, 0]}
-          scale={[12, 1, 1]}
+          scale={[7, 0.85, 1]}
         />
         <Lightformer
           form="rect"
-          intensity={0.9}
+          intensity={0.75}
           color="#ffffff"
-          position={[8.2, 2.6, -29]}
+          position={[10.5, 2.7, -18]}
           rotation={[0, -Math.PI / 2, 0]}
-          scale={[10, 1, 1]}
+          scale={[12, 0.85, 1]}
         />
       </Environment>
 
-      <pointLight position={[0, 3.2, -12]} intensity={3.2} color="#ffffff" distance={17} />
-      <pointLight position={[0.8, 3.4, -23]} intensity={4} color="#f2c230" distance={15} />
-      <pointLight position={[1.8, 3.4, -31]} intensity={2.7} color="#ffffff" distance={14} />
+      <pointLight position={[-7.8, 3.2, 6.8]} intensity={2.4} color="#f2c230" distance={9} />
+      <pointLight position={[0, 3.6, -5]} intensity={2.2} color="#ffffff" distance={16} />
+      <pointLight position={[-4.8, 3.45, -22]} intensity={2.1} color="#ffffff" distance={15} />
 
       {stripZ.map((z) => (
         <group key={z}>
-          <mesh position={[0, 4.08, z]}>
-            <boxGeometry args={[5.4, 0.08, 0.5]} />
+          <mesh position={[-4.2, 4.18, z]}>
+            <boxGeometry args={[5.6, 0.08, 0.38]} />
             <meshStandardMaterial
               color="#ffffff"
               emissive="#ffffff"
-              emissiveIntensity={1.6}
+              emissiveIntensity={1.15}
+              roughness={0.15}
+              metalness={0.25}
+            />
+          </mesh>
+          <mesh position={[4.2, 4.18, z]}>
+            <boxGeometry args={[5.6, 0.08, 0.38]} />
+            <meshStandardMaterial
+              color="#ffffff"
+              emissive="#ffffff"
+              emissiveIntensity={1.05}
               roughness={0.15}
               metalness={0.25}
             />
           </mesh>
           <pointLight
-            position={[0, 3.95, z]}
+            position={[-4.2, 3.9, z]}
             color="#dfe8ff"
-            intensity={1.4}
-            distance={9}
+            intensity={0.85}
+            distance={7}
+            decay={2}
+          />
+          <pointLight
+            position={[4.2, 3.9, z]}
+            color="#dfe8ff"
+            intensity={0.78}
+            distance={7}
             decay={2}
           />
         </group>
