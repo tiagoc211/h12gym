@@ -1,5 +1,6 @@
 import { SignPanel } from './SignPanel'
 import { gymLayout } from '../../../config/gymLayout'
+import { ArchitecturalShaders } from './ArchitecturalShaders'
 import { Ceiling } from './Ceiling'
 import { RestrictedRoom } from './RestrictedRoom'
 import { TurfZone } from './TurfZone'
@@ -70,6 +71,7 @@ export function Architecture() {
 
       <RestrictedRoom />
       <Ceiling />
+      <ArchitecturalShaders />
 
       {pillarZ.map((z) => (
         <group key={z}>
