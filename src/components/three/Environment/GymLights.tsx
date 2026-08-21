@@ -33,7 +33,7 @@ export function GymLights() {
         />
       </Environment>
 
-      <pointLight position={[-7.8, 3.2, 6.8]} intensity={2.75} color="#f2c230" distance={10} />
+      <pointLight position={[-7.8, 3.2, 6.8]} intensity={2.25} color="#d9e8ff" distance={10} />
       <pointLight position={[0, 3.6, -5]} intensity={2.7} color="#ffffff" distance={17} />
       <pointLight position={[-4.8, 3.45, -22]} intensity={2.65} color="#ffffff" distance={16} />
       <pointLight position={[-9.6, 3.55, -2.5]} intensity={1.45} color="#d9e8ff" distance={8.5} />

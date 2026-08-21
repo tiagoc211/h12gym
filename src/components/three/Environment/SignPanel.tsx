@@ -47,7 +47,7 @@ export function SignPanel({
   secondary,
   width = 4.2,
   height = 1.1,
-  accent = '#f2c230',
+  accent = '#d6d6d6',
 }: SignPanelProps) {
   const texture = useMemo(
     () => createSignTexture(primary, secondary, accent),

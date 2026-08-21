@@ -52,15 +52,15 @@ export function Architecture() {
       <group position={[-11.2, 2.25, 8]}>
         <mesh position={[0, 0, -2.55]}>
           <boxGeometry args={[0.42, 4.5, 0.22]} />
-          <meshStandardMaterial color="#f2c230" roughness={0.46} metalness={0.22} />
+          <meshStandardMaterial color="#202020" roughness={0.52} metalness={0.42} />
         </mesh>
         <mesh position={[0, 0, 2.55]}>
           <boxGeometry args={[0.42, 4.5, 0.22]} />
-          <meshStandardMaterial color="#f2c230" roughness={0.46} metalness={0.22} />
+          <meshStandardMaterial color="#202020" roughness={0.52} metalness={0.42} />
         </mesh>
         <mesh position={[0, 2.25, 0]}>
           <boxGeometry args={[0.42, 0.22, 5.25]} />
-          <meshStandardMaterial color="#f2c230" roughness={0.46} metalness={0.22} />
+          <meshStandardMaterial color="#202020" roughness={0.52} metalness={0.42} />
         </mesh>
       </group>
 

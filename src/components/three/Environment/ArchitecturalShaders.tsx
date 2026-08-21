@@ -32,7 +32,7 @@ const floorFragmentShader = /* glsl */ `
     float depthFade = smoothstep(0.0, 0.16, uv.y) * smoothstep(1.0, 0.82, uv.y);
     float alpha = (longLines + crossLines + scan * 0.018) * edgeFade * depthFade;
 
-    vec3 color = mix(vec3(0.04, 0.04, 0.04), vec3(0.88, 0.74, 0.22), longLines * 1.6);
+    vec3 color = mix(vec3(0.04, 0.04, 0.04), vec3(0.48, 0.54, 0.62), longLines * 1.6);
     gl_FragColor = vec4(color, alpha);
   }
 `
@@ -136,7 +136,7 @@ function WindowGlass({ z }: { z: number }) {
       {[-0.64, 0.64].map((y) => (
         <mesh key={y} position={[0, y, 0.032]}>
           <boxGeometry args={[7.65, 0.07, 0.08]} />
-          <meshStandardMaterial color="#f2c230" roughness={0.32} metalness={0.54} emissive="#332807" />
+          <meshStandardMaterial color="#202020" roughness={0.38} metalness={0.64} emissive="#080808" />
         </mesh>
       ))}
       {[-3.85, 3.85].map((x) => (
@@ -159,7 +159,7 @@ function WindowGlass({ z }: { z: number }) {
 
       <mesh position={[0, 0.68, 0.02]}>
         <boxGeometry args={[7.6, 0.055, 0.05]} />
-        <meshStandardMaterial color="#f2c230" roughness={0.32} metalness={0.54} emissive="#2a2106" />
+        <meshStandardMaterial color="#202020" roughness={0.38} metalness={0.64} emissive="#080808" />
       </mesh>
     </group>
   )

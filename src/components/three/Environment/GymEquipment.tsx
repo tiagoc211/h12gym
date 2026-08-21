@@ -32,41 +32,6 @@ function CompactDumbbell({
   )
 }
 
-function Rack({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
-  return (
-    <group position={position} rotation={rotation}>
-      {[
-        [-0.82, 0, -0.58],
-        [0.82, 0, -0.58],
-        [-0.82, 0, 0.58],
-        [0.82, 0, 0.58],
-      ].map(([x, y, z]) => (
-        <mesh key={`${x}-${z}`} position={[x, y, z]}>
-          <boxGeometry args={[0.12, 2.35, 0.12]} />
-          <meshStandardMaterial color="#1d1d1d" roughness={0.5} metalness={0.62} />
-        </mesh>
-      ))}
-
-      <mesh position={[0, 1.12, -0.58]}>
-        <boxGeometry args={[1.78, 0.12, 0.12]} />
-        <meshStandardMaterial color="#2a2a2a" roughness={0.44} metalness={0.64} />
-      </mesh>
-      <mesh position={[0, 1.12, 0.58]}>
-        <boxGeometry args={[1.78, 0.12, 0.12]} />
-        <meshStandardMaterial color="#2a2a2a" roughness={0.44} metalness={0.64} />
-      </mesh>
-      <mesh position={[0, 0.08, 0]}>
-        <boxGeometry args={[2.1, 0.1, 1.55]} />
-        <meshStandardMaterial color="#111111" roughness={0.9} metalness={0.12} />
-      </mesh>
-      <mesh position={[0, 1.5, 0]}>
-        <boxGeometry args={[1.95, 0.08, 0.08]} />
-        <meshStandardMaterial color="#f2c230" roughness={0.3} metalness={0.52} />
-      </mesh>
-    </group>
-  )
-}
-
 function Bench({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
   return (
     <group position={position} rotation={rotation}>
@@ -101,45 +66,6 @@ function Bench({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
       <mesh position={[-1.15, 0.45, 0]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.12, 0.12, 0.56, 20]} />
         <meshStandardMaterial color="#1e1e1e" roughness={0.7} metalness={0.22} />
-      </mesh>
-    </group>
-  )
-}
-
-function Treadmill({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
-  return (
-    <group position={position} rotation={rotation}>
-      <mesh position={[0, -0.43, 0.18]}>
-        <boxGeometry args={[1.22, 0.16, 2.65]} />
-        <meshStandardMaterial color="#111111" roughness={0.78} metalness={0.16} />
-      </mesh>
-      <mesh position={[0, -0.32, 0.18]}>
-        <boxGeometry args={[0.92, 0.07, 2.18]} />
-        <meshStandardMaterial color="#050505" roughness={0.92} metalness={0.05} />
-      </mesh>
-      {[-0.62, 0.62].map((x) => (
-        <mesh key={x} position={[x, -0.22, -0.08]}>
-          <boxGeometry args={[0.08, 0.1, 2.35]} />
-          <meshStandardMaterial color="#232323" roughness={0.4} metalness={0.68} />
-        </mesh>
-      ))}
-      {[-0.42, 0.42].map((x) => (
-        <mesh key={x} position={[x, 0.42, -1.02]} rotation={[0.18, 0, 0]}>
-          <boxGeometry args={[0.08, 1.58, 0.08]} />
-          <meshStandardMaterial color="#1c1c1c" roughness={0.4} metalness={0.74} />
-        </mesh>
-      ))}
-      <mesh position={[0, 1.14, -1.2]} rotation={[-0.18, 0, 0]}>
-        <boxGeometry args={[1.1, 0.38, 0.18]} />
-        <meshStandardMaterial color="#181818" roughness={0.48} metalness={0.62} />
-      </mesh>
-      <mesh position={[0, 1.18, -1.3]} rotation={[-0.18, 0, 0]}>
-        <boxGeometry args={[0.58, 0.2, 0.03]} />
-        <meshStandardMaterial color="#f2c230" roughness={0.34} metalness={0.32} emissive="#2d2407" />
-      </mesh>
-      <mesh position={[0, -0.24, 1.48]} rotation={[Math.PI / 2, 0, 0]}>
-        <cylinderGeometry args={[0.16, 0.16, 1.08, 22]} />
-        <meshStandardMaterial color="#0c0c0c" roughness={0.5} metalness={0.5} />
       </mesh>
     </group>
   )
@@ -190,44 +116,13 @@ function FreeDumbbellPair({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
   )
 }
 
-function MachineBlock({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
-  return (
-    <group position={position} rotation={rotation}>
-      <mesh position={[0, 0.08, 0]}>
-        <boxGeometry args={[1.45, 0.16, 1.2]} />
-        <meshStandardMaterial color="#161616" roughness={0.86} metalness={0.12} />
-      </mesh>
-      <mesh position={[0, 0.94, -0.44]}>
-        <boxGeometry args={[1.28, 1.75, 0.18]} />
-        <meshStandardMaterial color="#303030" roughness={0.48} metalness={0.46} />
-      </mesh>
-      <mesh position={[0, 0.52, 0.12]}>
-        <boxGeometry args={[0.76, 0.24, 0.7]} />
-        <meshStandardMaterial color="#242424" roughness={0.88} metalness={0.08} />
-      </mesh>
-      <mesh position={[0, 1.72, -0.44]}>
-        <boxGeometry args={[1.44, 0.12, 0.22]} />
-        <meshStandardMaterial color="#f2c230" roughness={0.34} metalness={0.48} />
-      </mesh>
-    </group>
-  )
-}
-
 export function GymEquipment() {
   const { equipment } = gymLayout
 
   return (
     <group>
-      {equipment.racks.map((rack) => (
-        <Rack key={rack.id} {...rack} />
-      ))}
-
       {equipment.benches.map((bench) => (
         <Bench key={bench.id} {...bench} />
-      ))}
-
-      {equipment.treadmills.map((treadmill) => (
-        <Treadmill key={treadmill.id} {...treadmill} />
       ))}
 
       {equipment.dumbbellRacks.map((rack) => (
@@ -236,10 +131,6 @@ export function GymEquipment() {
 
       {equipment.freeDumbbells.map((dumbbell) => (
         <FreeDumbbellPair key={dumbbell.id} {...dumbbell} />
-      ))}
-
-      {equipment.machines.map((machine) => (
-        <MachineBlock key={machine.id} {...machine} />
       ))}
     </group>
   )

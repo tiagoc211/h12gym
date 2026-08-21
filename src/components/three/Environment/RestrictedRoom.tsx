@@ -17,7 +17,7 @@ export function RestrictedRoom() {
 
       <mesh position={[-size[0] / 2 - 0.035, 0.15, 0]}>
         <boxGeometry args={[0.07, 0.3, size[2] + 0.16]} />
-        <meshStandardMaterial color="#f2c230" roughness={0.48} metalness={0.24} />
+        <meshStandardMaterial color="#181818" roughness={0.58} metalness={0.32} />
       </mesh>
     </group>
   )

@@ -17,7 +17,7 @@ export function DebugOverlay() {
 
   return (
     <group>
-      <Line points={pathGeometry} color="#f2c230" lineWidth={1} transparent opacity={0.6} />
+      <Line points={pathGeometry} color="#8f8f8f" lineWidth={1} transparent opacity={0.6} />
 
       <mesh position={gymLayout.restrictedRoom.position}>
         <boxGeometry args={gymLayout.restrictedRoom.size} />
