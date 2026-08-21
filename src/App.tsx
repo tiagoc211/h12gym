@@ -1,35 +1,41 @@
-import { Experience } from './components/three/expirience'
-import './styles/globals.css'
+import { Experience } from './components/three/Experience'
+import { useSmoothScroll } from './hooks/useSmoothScroll'
 
 function App() {
+  useSmoothScroll()
+
   return (
     <>
-      <div className="canvas-container">
+      <div className="experience">
         <Experience />
       </div>
 
-      <div className="scroll-content">
-        <section>
+      <main className="scroll-content">
+        <section className="panel hero">
           <h1>H12 GYM</h1>
-          <p>Scroll to enter</p>
+          <p>SCROLL TO ENTER</p>
         </section>
 
-        <section>
-          <h2>Strength</h2>
+        <section className="panel">
+          <h2>STRENGTH</h2>
         </section>
 
-        <section>
-          <h2>Move</h2>
+        <section className="panel">
+          <h2>PERFORMANCE</h2>
         </section>
 
-        <section>
-          <h2>Push Further</h2>
+        <section className="panel">
+          <h2>MOVEMENT</h2>
         </section>
 
-        <section>
+        <section className="panel">
+          <h2>COMMUNITY</h2>
+        </section>
+
+        <section className="panel final">
           <h2>H12</h2>
         </section>
-      </div>
+      </main>
     </>
   )
 }
