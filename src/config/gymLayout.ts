@@ -24,8 +24,8 @@ export const gymLayout = {
     size: [16.2, 0.07, 2.35] as Vec3,
   },
   restrictedRoom: {
-    position: [-6.2, 2.05, -15.8] as Vec3,
-    size: [5.8, 4.1, 7.6] as Vec3,
+    position: [-4.95, 2.05, -16.8] as Vec3,
+    size: [11.8, 4.1, 8.8] as Vec3,
   },
   zones: {
     lower: {
@@ -59,7 +59,7 @@ export const gymLayout = {
     ] satisfies EquipmentBlock[],
     dumbbellRacks: [
       { id: 'upper-dumbbell-rack', position: [8.7, 0.55, 4.2], rotation: [0, -0.04, 0] },
-      { id: 'lower-dumbbell-rack', position: [-8.3, 0.55, -10.6], rotation: [0, 0.1, 0] },
+      { id: 'lower-dumbbell-rack', position: [6.2, 0.55, -10.6], rotation: [0, -0.1, 0] },
     ] satisfies EquipmentBlock[],
     freeDumbbells: [
       { id: 'compact-dumbbell-entry', position: [-3.6, 0.24, 1.35], rotation: [0, 0.45, 0] },
@@ -70,8 +70,8 @@ export const gymLayout = {
       { id: 'upper-cable', position: [2.5, 1.15, 2.4], rotation: [0, -0.12, 0] },
       { id: 'upper-machine-1', position: [6.9, 1.05, 0.6], rotation: [0, 0.2, 0] },
       { id: 'upper-machine-2', position: [7.2, 1.05, -3.2], rotation: [0, -0.16, 0] },
-      { id: 'legs-machine-1', position: [-7.2, 1.02, -23.8], rotation: [0, 0.1, 0] },
-      { id: 'legs-machine-2', position: [-3.7, 1.05, -28.8], rotation: [0, -0.22, 0] },
+      { id: 'legs-machine-1', position: [5.4, 1.02, -22.4], rotation: [0, -0.12, 0] },
+      { id: 'legs-machine-2', position: [4.4, 1.05, -29.0], rotation: [0, -0.12, 0] },
       { id: 'back-machine', position: [7.2, 1.08, -25.6], rotation: [0, -0.2, 0] },
     ] satisfies EquipmentBlock[],
   },
