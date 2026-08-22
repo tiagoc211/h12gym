@@ -3,8 +3,11 @@ import { Canvas } from '@react-three/fiber'
 import { CameraRig } from './CameraRig'
 import { PlaceholderGym } from './PlaceholderGym'
 import { PostProcessing } from './effects/PostProcessing'
+import { cameraPath } from '../../config/cameraPath'
 
 export function Experience() {
+  const initialCamera = cameraPath[0]
+
   return (
     <Canvas
       dpr={[1, 1.5]}
@@ -12,10 +15,13 @@ export function Experience() {
     >
       <PerspectiveCamera
         makeDefault
-        fov={47}
+        fov={initialCamera.fov}
         near={0.1}
         far={180}
-        position={[-15.2, 1.62, 8.9]}
+        position={initialCamera.position}
+        onUpdate={(camera) => {
+          camera.lookAt(...initialCamera.target)
+        }}
       />
 
       <color attach="background" args={['#050505']} />
