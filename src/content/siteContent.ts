@@ -118,7 +118,7 @@ export const siteContent = {
     scrollHint: 'SCROLL TO ENTER',
   } satisfies HeroContent,
   story: {
-    title: 'UM GINÁSIO DE MESSINES.',
+    title: 'UM H12.\nDUAS LOCALIZAÇÕES.',
     lines: ['ESPAÇO PARA TREINAR.', 'EQUIPA PRESENTE.', 'AMBIENTE QUE PUXA POR TI.'],
   } satisfies StorylineContent,
   media: {
@@ -331,6 +331,9 @@ export const siteContent = {
       mapUrl:
         'https://www.google.com/maps/search/?api=1&query=H12%20Gym%20R.%20Dom%20Jo%C3%A3o%20II%2016%20G%208365-138%20Arma%C3%A7%C3%A3o%20de%20P%C3%AAra',
       mapUrlConfirmed: true,
+      imageSrc: '/media/h12-source/h12-armacao-wanderlog.jpg',
+      imageAlt: 'Fotografia pública do interior do H12 Gym Armação de Pêra.',
+      imagePosition: 'center center',
       sourceNote:
         'Informação alinhada com páginas Wanderlog públicas; dados comerciais finais devem ser confirmados pelo H12.',
     },
