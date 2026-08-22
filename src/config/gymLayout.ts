@@ -20,8 +20,8 @@ export const gymLayout = {
     openingWidth: 4.8,
   },
   turf: {
-    position: [-0.8, 0.035, -4.8] as Vec3,
-    size: [16.2, 0.07, 2.35] as Vec3,
+    position: [8.35, 0.035, -7.8] as Vec3,
+    size: [3.35, 0.07, 26.8] as Vec3,
   },
   restrictedRoom: {
     position: [-4.95, 2.05, -16.8] as Vec3,
