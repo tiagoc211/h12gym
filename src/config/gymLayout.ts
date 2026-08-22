@@ -48,19 +48,19 @@ export const gymLayout = {
     ] satisfies EquipmentBlock[],
     lowerBackBenches: [
       { id: 'lower-back-corridor-right', position: [7.25, 0.46, -5.8], rotation: [0, -0.22, 0] },
-      { id: 'lower-back-rear-left', position: [2.35, 0.46, -23.6], rotation: [0, 0.18, 0] },
+      { id: 'lower-back-rear-left', position: [1.45, 0.46, -23.6], rotation: [0, 0.18, 0] },
     ] satisfies EquipmentBlock[],
     treadmills: [
       { id: 'low-poly-treadmill-corridor-right', position: [7.55, 0.18, 2.8], rotation: [0, -0.08, 0] },
       { id: 'low-poly-treadmill-rear-right', position: [7.5, 0.18, -2.0], rotation: [0, -0.04, 0] },
     ] satisfies EquipmentBlock[],
     pulldownMachines: [
-      { id: 'arm-pulldown-corridor-left', position: [2.25, 1.12, -7.9], rotation: [0, 0.08, 0] },
+      { id: 'arm-pulldown-corridor-left', position: [1.45, 1.12, -7.9], rotation: [0, 0.08, 0] },
       { id: 'arm-pulldown-corridor-right', position: [7.45, 1.12, -12.3], rotation: [0, -0.14, 0] },
     ] satisfies EquipmentBlock[],
     exerciseBikes: [
       { id: 'reebok-bike-corridor-right', position: [7.5, 0.62, -16.2], rotation: [0, -0.1, 0] },
-      { id: 'reebok-bike-front-left', position: [2.35, 0.62, 3.8], rotation: [0, 0.12, 0] },
+      { id: 'reebok-bike-front-left', position: [1.55, 0.62, 3.8], rotation: [0, 0.12, 0] },
     ] satisfies EquipmentBlock[],
     dumbbellRacks: [
       { id: 'upper-dumbbell-rack', position: [-8.5, 0.55, 6.8], rotation: [0, 0.06, 0] },
