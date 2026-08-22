@@ -320,6 +320,70 @@ function LegPressMachine({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
   )
 }
 
+function SmithMachine({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
+  return (
+    <group position={position} rotation={rotation}>
+      <mesh position={[0, -1.12, 0]}>
+        <boxGeometry args={[2.35, 0.12, 1.55]} />
+        <meshStandardMaterial color="#101010" roughness={0.72} metalness={0.22} />
+      </mesh>
+
+      {[
+        [-0.9, 0, -0.56],
+        [0.9, 0, -0.56],
+        [-0.9, 0, 0.56],
+        [0.9, 0, 0.56],
+      ].map(([x, y, z]) => (
+        <mesh key={`${x}-${z}`} position={[x, y, z]}>
+          <boxGeometry args={[0.1, 2.36, 0.1]} />
+          <meshStandardMaterial color="#1b1b1b" roughness={0.42} metalness={0.74} />
+        </mesh>
+      ))}
+
+      {[-0.56, 0.56].map((z) => (
+        <mesh key={z} position={[0, 1.16, z]}>
+          <boxGeometry args={[1.95, 0.1, 0.1]} />
+          <meshStandardMaterial color="#242424" roughness={0.38} metalness={0.72} />
+        </mesh>
+      ))}
+
+      {[-0.9, 0.9].map((x) => (
+        <mesh key={x} position={[x, 0, 0]}>
+          <boxGeometry args={[0.08, 2.1, 0.08]} />
+          <meshStandardMaterial color="#2a2a2a" roughness={0.34} metalness={0.76} />
+        </mesh>
+      ))}
+
+      <mesh position={[0, 0.38, 0]} rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.045, 0.045, 2.25, 18]} />
+        <meshStandardMaterial color="#343434" roughness={0.28} metalness={0.82} />
+      </mesh>
+
+      {[-1.22, 1.22].map((x) => (
+        <group key={x} position={[x, 0.38, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <mesh>
+            <cylinderGeometry args={[0.18, 0.18, 0.12, 20]} />
+            <meshStandardMaterial color="#111111" roughness={0.64} metalness={0.36} />
+          </mesh>
+          <mesh position={[0, 0.12, 0]}>
+            <cylinderGeometry args={[0.14, 0.14, 0.08, 20]} />
+            <meshStandardMaterial color="#242424" roughness={0.48} metalness={0.58} />
+          </mesh>
+        </group>
+      ))}
+
+      <mesh position={[0, -0.62, 0.36]}>
+        <boxGeometry args={[1.15, 0.14, 0.52]} />
+        <meshStandardMaterial color="#262626" roughness={0.9} metalness={0.08} />
+      </mesh>
+      <mesh position={[-0.35, -0.28, 0.34]} rotation={[0, 0, -0.46]}>
+        <boxGeometry args={[0.9, 0.14, 0.52]} />
+        <meshStandardMaterial color="#292929" roughness={0.88} metalness={0.08} />
+      </mesh>
+    </group>
+  )
+}
+
 function FreeDumbbellPair({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
   return (
     <group position={position} rotation={rotation}>
@@ -360,6 +424,10 @@ export function GymEquipment() {
 
       {equipment.legPressMachines.map((machine) => (
         <LegPressMachine key={machine.id} {...machine} />
+      ))}
+
+      {equipment.smithMachines.map((machine) => (
+        <SmithMachine key={machine.id} {...machine} />
       ))}
 
       {equipment.freeDumbbells.map((dumbbell) => (

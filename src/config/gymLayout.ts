@@ -66,6 +66,9 @@ export const gymLayout = {
       { id: 'leg-press-left-room-1', position: [-4.85, 0.62, 4.2], rotation: [0, 0.28, 0] },
       { id: 'leg-press-left-room-2', position: [-3.2, 0.62, -2.0], rotation: [0, -0.18, 0] },
     ] satisfies EquipmentBlock[],
+    smithMachines: [
+      { id: 'smith-left-room', position: [-8.1, 1.2, -2.0], rotation: [0, 0.06, 0] },
+    ] satisfies EquipmentBlock[],
     dumbbellRacks: [
       { id: 'upper-dumbbell-rack', position: [-8.5, 0.55, 6.8], rotation: [0, 0.06, 0] },
       { id: 'right-dumbbell-rack-1', position: [8.75, 0.55, -20.6], rotation: [0, -0.1, 0] },
