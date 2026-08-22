@@ -62,6 +62,10 @@ export const gymLayout = {
       { id: 'reebok-bike-corridor-right', position: [7.5, 0.62, -16.2], rotation: [0, -0.1, 0] },
       { id: 'reebok-bike-front-left', position: [1.55, 0.62, 3.8], rotation: [0, 0.12, 0] },
     ] satisfies EquipmentBlock[],
+    legPressMachines: [
+      { id: 'leg-press-left-room-1', position: [-4.85, 0.62, 4.2], rotation: [0, 0.28, 0] },
+      { id: 'leg-press-left-room-2', position: [-3.2, 0.62, -2.0], rotation: [0, -0.18, 0] },
+    ] satisfies EquipmentBlock[],
     dumbbellRacks: [
       { id: 'upper-dumbbell-rack', position: [-8.5, 0.55, 6.8], rotation: [0, 0.06, 0] },
       { id: 'right-dumbbell-rack-1', position: [8.75, 0.55, -20.6], rotation: [0, -0.1, 0] },

@@ -263,6 +263,63 @@ function ExerciseBike({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
   )
 }
 
+function LegPressMachine({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
+  return (
+    <group position={position} rotation={rotation}>
+      <mesh position={[0, -0.58, 0]}>
+        <boxGeometry args={[1.75, 0.12, 1.75]} />
+        <meshStandardMaterial color="#101010" roughness={0.72} metalness={0.22} />
+      </mesh>
+
+      {[-0.55, 0.55].map((x) => (
+        <mesh key={x} position={[x, -0.28, -0.08]} rotation={[0.46, 0, 0]}>
+          <boxGeometry args={[0.1, 0.1, 1.95]} />
+          <meshStandardMaterial color="#1c1c1c" roughness={0.4} metalness={0.72} />
+        </mesh>
+      ))}
+
+      <mesh position={[0, -0.18, 0.48]} rotation={[-0.42, 0, 0]}>
+        <boxGeometry args={[0.88, 0.2, 0.72]} />
+        <meshStandardMaterial color="#262626" roughness={0.9} metalness={0.08} />
+      </mesh>
+      <mesh position={[0, 0.28, 0.18]} rotation={[-0.68, 0, 0]}>
+        <boxGeometry args={[0.92, 0.2, 0.86]} />
+        <meshStandardMaterial color="#2d2d2d" roughness={0.88} metalness={0.08} />
+      </mesh>
+
+      <mesh position={[0, 0.58, -0.86]} rotation={[0.42, 0, 0]}>
+        <boxGeometry args={[1.28, 0.18, 0.84]} />
+        <meshStandardMaterial color="#202020" roughness={0.52} metalness={0.6} />
+      </mesh>
+
+      <mesh position={[0, 0.25, -1.12]} rotation={[Math.PI / 2, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.055, 0.055, 1.42, 16]} />
+        <meshStandardMaterial color="#2a2a2a" roughness={0.36} metalness={0.74} />
+      </mesh>
+
+      {[-0.82, 0.82].map((x) => (
+        <group key={x} position={[x, 0.25, -1.12]} rotation={[Math.PI / 2, 0, 0]}>
+          <mesh>
+            <cylinderGeometry args={[0.26, 0.26, 0.12, 22]} />
+            <meshStandardMaterial color="#121212" roughness={0.66} metalness={0.34} />
+          </mesh>
+          <mesh position={[0, 0.12, 0]}>
+            <cylinderGeometry args={[0.2, 0.2, 0.08, 22]} />
+            <meshStandardMaterial color="#222222" roughness={0.5} metalness={0.56} />
+          </mesh>
+        </group>
+      ))}
+
+      {[-0.72, 0.72].map((x) => (
+        <mesh key={x} position={[x, -0.24, 0.62]}>
+          <boxGeometry args={[0.1, 0.68, 0.1]} />
+          <meshStandardMaterial color="#181818" roughness={0.42} metalness={0.68} />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
 function FreeDumbbellPair({ position, rotation = [0, 0, 0] }: EquipmentBlock) {
   return (
     <group position={position} rotation={rotation}>
@@ -299,6 +356,10 @@ export function GymEquipment() {
 
       {equipment.exerciseBikes.map((bike) => (
         <ExerciseBike key={bike.id} {...bike} />
+      ))}
+
+      {equipment.legPressMachines.map((machine) => (
+        <LegPressMachine key={machine.id} {...machine} />
       ))}
 
       {equipment.freeDumbbells.map((dumbbell) => (
