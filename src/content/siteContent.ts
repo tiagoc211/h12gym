@@ -162,18 +162,6 @@ export const siteContent = {
       credit: 'csmarketglasses.com',
       facts: ['CARDIO', 'RELVA', 'MÁQUINAS'],
     },
-    {
-      id: 'machines',
-      index: '03',
-      kicker: 'TREINO COMPLETO',
-      title: 'MUSCULAÇÃO.\nFUNCIONAL.\nAULAS.',
-      body: 'A estrutura de conteúdo passa a introduzir serviços logo no início da caminhada 3D.',
-      imagePosition: 'center center',
-      imageSrc: '/media/h12-source/h12-source-01.jpg',
-      imageAlt: 'Fotografia pública do interior H12 com máquinas e teto técnico.',
-      credit: 'csmarketglasses.com',
-      facts: ['MUSCULAÇÃO', 'TREINO FUNCIONAL', 'ACOMPANHAMENTO'],
-    },
   ] satisfies ScrollMoment[],
   space: {
     title: 'UM ESPAÇO.\nVÁRIAS FORMAS\nDE EVOLUIR.',
