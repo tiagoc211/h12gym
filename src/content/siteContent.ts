@@ -112,14 +112,18 @@ export const siteContent = {
   hero: {
     cityLabel: 'MESSINES + ARMAÇÃO DE PÊRA',
     displayTitle: 'H12',
-    lines: ['TREINA.', 'EVOLUI.', 'VOLTA.'],
+    lines: ['TREINA.', 'EVOLUI.', 'REPETE.'],
     primaryCta: 'CONHECER O H12',
     secondaryCta: 'VER PLANOS',
-    scrollHint: 'SCROLL TO ENTER',
+    scrollHint: 'SCROLL',
   } satisfies HeroContent,
   story: {
-    title: 'UM H12.\nDUAS LOCALIZAÇÕES.',
-    lines: ['ESPAÇO PARA TREINAR.', 'EQUIPA PRESENTE.', 'AMBIENTE QUE PUXA POR TI.'],
+    title: 'UM GINÁSIO PRÓXIMO,\nSEM COMPLICAÇÕES.',
+    lines: [
+      'MUSCULAÇÃO, TREINO FUNCIONAL E AULAS.',
+      'ACOMPANHAMENTO DE UMA EQUIPA PRESENTE.',
+      'AMBIENTE INFORMAL PARA TREINOS A SÉRIO.',
+    ],
   } satisfies StorylineContent,
   media: {
     h12Interior: {
@@ -164,79 +168,72 @@ export const siteContent = {
     },
   ] satisfies ScrollMoment[],
   space: {
-    title: 'UM ESPAÇO.\nVÁRIAS FORMAS\nDE EVOLUIR.',
+    title: 'UM ESPAÇO PARA\nTREINAR À TUA\nMANEIRA.',
     description:
-      'As listagens públicas descrevem a marca H12 com espaços de treino no Algarve, incluindo Messines e Armação de Pêra, com foco em musculação, máquinas e acompanhamento no terreno.',
+      'A comunicação deve ir direta ao que mais se destaca no H12: equipamento completo, acompanhamento próximo e uma energia sem o aspeto corporate dos grandes ginásios.',
     areas: [
       {
         id: 'strength',
         index: '01',
         title: 'MUSCULAÇÃO',
-        description: 'Máquinas, pesos livres e treino de força como base do espaço.',
-        sourceNote: 'Referido em listagens e avaliações públicas.',
+        description: 'Máquinas, pesos livres, racks, cabos e estações para força e hipertrofia.',
+      },
+      {
+        id: 'functional',
+        index: '02',
+        title: 'TREINO FUNCIONAL',
+        description: 'Movimento, resistência e trabalho global para treinar o corpo todo.',
       },
       {
         id: 'classes',
-        index: '02',
-        title: 'AULAS DE GRUPO',
-        description: 'Aulas em grupo mencionadas publicamente como parte da experiência H12.',
-        sourceNote: 'Modalidades concretas ainda por confirmar oficialmente.',
-      },
-      {
-        id: 'cardio',
         index: '03',
-        title: 'CARDIO',
-        description: 'Zona cardiovascular visível em fotografia pública do espaço.',
-        isPlaceholder: true,
-        note: 'Confirmar lista real de equipamentos cardio.',
+        title: 'AULAS DE GRUPO',
+        description: 'Opções dinâmicas para treinar acompanhado e manter a consistência.',
+        sourceNote: 'Modalidades concretas ainda por confirmar oficialmente.',
       },
       {
         id: 'coaching',
         index: '04',
-        title: 'ORIENTAÇÃO',
-        description: 'Avaliações públicas referem staff disponível e instrutores atentos.',
-        isPlaceholder: true,
-        note: 'Confirmar formato oficial de acompanhamento/PT.',
+        title: 'ACOMPANHAMENTO',
+        description: 'Ajuda de profissionais para treinar com mais segurança e corrigir o que for preciso.',
       },
     ] satisfies TrainingArea[],
   },
   benefits: {
-    title: 'PORQUÊ H12?',
+    title: 'TREINO COMPLETO.\nSEM DRAMA.',
     items: [
       {
         index: '01',
-        title: 'PRESENÇA LOCAL',
-        description: 'O H12 aparece publicamente associado a mais do que uma localização no Algarve.',
+        title: 'TREINO COMPLETO',
+        description: 'Zona de musculação, pesos livres, racks, cabos e equipamento para construir um treino completo.',
       },
       {
         index: '02',
-        title: 'MUSCULAÇÃO E MÁQUINAS',
-        description: 'A base de treino passa por equipamento de musculação e máquinas.',
+        title: 'ACOMPANHAMENTO REAL',
+        description: 'Uma equipa presente para orientar, corrigir e ajudar tanto quem começa como quem já treina há anos.',
       },
       {
         index: '03',
-        title: 'EQUIPA NO TERRENO',
-        description: 'As avaliações destacam profissionais prestáveis e presentes.',
+        title: 'AMBIENTE H12',
+        description: 'Próximo, descontraído e sem filtros. O foco é aparecer, treinar bem e continuar a evoluir.',
       },
       {
         index: '04',
-        title: 'AMBIENTE ACOLHEDOR',
-        description: 'A leitura pública aponta para um ginásio limpo, próximo e sem pose.',
+        title: 'DOIS CLUBES',
+        description: 'Messines e Armação de Pêra reunidos no mesmo site, com horários, contactos e direções fáceis de encontrar.',
       },
     ] satisfies BenefitItem[],
   },
   coaching: {
-    title: 'ENTRA.\nPERGUNTA.\nTREINA MELHOR.',
-    body: 'O H12 deve comunicar a presença da equipa sem prometer serviços específicos que ainda não foram confirmados.',
+    title: 'O TEU OBJETIVO.\nO TEU RITMO.',
+    body: 'A navegação deve ajudar qualquer visitante a perceber rapidamente o que existe no clube e encontrar a forma certa de treinar sem ter de procurar tudo no Instagram.',
     cta: 'SABER MAIS',
-    isPlaceholder: true,
-    note: 'Confirmar serviços de PT, avaliações e acompanhamento antes de publicar como oferta oficial.',
   },
   community: {
-    eyebrow: 'THE H12 PEOPLE',
-    title: 'O ESPAÇO IMPORTA.\nA EQUIPA E AS PESSOAS\nFAZEM O RESTO.',
+    eyebrow: 'AMBIENTE H12',
+    title: 'O ESPAÇO FALA.\nA EQUIPA E AS PESSOAS\nFAZEM O RESTO.',
     description:
-      'A perceção pública do H12 é próxima: staff prestável, ambiente acolhedor e uma comunidade local que aparece para treinar.',
+      'Fotografia em grande formato, poucos elementos e uma paleta escura com amarelo mantêm o caráter industrial que já aparece nos espaços.',
   } satisfies CommunityContent,
   clubs: [
     {
@@ -367,38 +364,56 @@ export const siteContent = {
   memberships: {
     title: 'PLANOS',
     disclaimer:
-      'Valores meramente demonstrativos. Consultar condições reais junto do H12 Gym.',
+      'Valores demonstrativos do mockup. Confirmar condições reais junto do H12 Gym antes de publicar.',
     plans: [
       {
         id: 'essential',
-        name: 'ESSENTIAL',
+        name: 'ESSENCIAL',
         price: '29,90 €',
         period: '/ mês',
         isExample: true,
-        features: ['Ginásio', 'Aulas', 'Acesso base'],
+        features: [
+          'Acesso à sala de musculação',
+          'Zona de cardio e pesos livres',
+          'Acesso num clube H12',
+          'Avaliação inicial',
+        ],
       },
       {
         id: 'h12',
-        name: 'H12',
+        name: 'H12 COMPLETE',
         price: '34,90 €',
         period: '/ mês',
         highlight: 'MAIS ESCOLHIDO',
         isExample: true,
         featured: true,
-        features: ['Ginásio', 'Aulas', 'Acompanhamento', 'Sem fidelização'],
+        features: [
+          'Tudo o que inclui o Essencial',
+          'Aulas de grupo incluídas',
+          'Plano de treino inicial',
+          'Reavaliação periódica',
+          'Acesso aos dois clubes H12',
+        ],
       },
       {
         id: 'flex',
-        name: 'FLEX',
+        name: 'SEM COMPROMISSO',
         price: '39,90 €',
         period: '/ mês',
         isExample: true,
-        features: ['Ginásio', 'Aulas', 'Horário flexível'],
+        features: [
+          'Acesso total ao ginásio',
+          'Aulas de grupo incluídas',
+          'Sem período de fidelização',
+          'Pausa de plano facilitada',
+        ],
       },
     ] satisfies MembershipPlan[],
   },
   location: {
-    title: 'H12\nALGARVE',
+    title: 'DOIS H12.\nA MESMA ENERGIA.',
+    intro:
+      'O site serve as duas localizações da marca num só lugar, sem duplicar páginas e com horários, contactos e direções sempre fáceis de encontrar.',
     fields: [
       {
         label: 'Morada',
@@ -442,6 +457,12 @@ export const siteContent = {
       },
     ] satisfies LocationField[],
   },
+  feedback: {
+    eyebrow: 'FEEDBACK',
+    quote: 'Tem tudo o que é preciso para fazer um treino completo.',
+    cite: 'Feedback de visitante · H12 Armação de Pêra',
+    note: 'Excerto adaptado de uma avaliação pública.',
+  },
   faq: {
     title: 'FAQ',
     items: [
@@ -481,12 +502,12 @@ export const siteContent = {
     ] satisfies FaqItem[],
   },
   finalCta: {
-    title: ['READY?', 'YOUR NEXT', 'WORKOUT', 'STARTS HERE.'],
-    subtitle: 'H12 GYM · ALGARVE',
-    button: 'COMEÇAR',
+    title: ['O TREINO', 'DE AMANHÃ', 'COMEÇA', 'HOJE.'],
+    subtitle: 'PASSA PELO CLUBE, CONHECE O ESPAÇO E FALA COM A EQUIPA.',
+    button: 'ENVIAR MENSAGEM',
   },
   footer: {
-    text: 'H12 GYM — Protótipo web alinhado com informação pública. Dados operacionais sujeitos a confirmação oficial.',
+    text: 'Treino, acompanhamento e comunidade. Em São Bartolomeu de Messines e Armação de Pêra.',
   },
 }
 

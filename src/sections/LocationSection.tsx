@@ -10,7 +10,7 @@ export function LocationSection() {
       <SectionLabel index="07" label="CLUBES H12" />
       <div className="section-head">
         <h2>{siteContent.location.title}</h2>
-        <p>Informação pública separada por localização para não misturar moradas, horários e contexto de cada clube.</p>
+        <p>{siteContent.location.intro}</p>
       </div>
 
       <div className="clubs-grid">

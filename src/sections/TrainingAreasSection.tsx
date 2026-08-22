@@ -1,7 +1,9 @@
-import { siteContent } from '../content/siteContent'
+import { siteContent, type TrainingArea } from '../content/siteContent'
 import { SectionLabel } from '../components/ui/SectionLabel'
 
 export function TrainingAreasSection() {
+  const areas = siteContent.space.areas as TrainingArea[]
+
   return (
     <section id="espaco" className="site-section training-areas-section">
       <SectionLabel index="02" label="O ESPAÇO" />
@@ -11,7 +13,7 @@ export function TrainingAreasSection() {
       </div>
 
       <div className="areas-grid">
-        {siteContent.space.areas.map((area) => (
+        {areas.map((area) => (
           <article key={area.id} className="area-card">
             <p className="area-card__index">{area.index}</p>
             <h3>{area.title}</h3>

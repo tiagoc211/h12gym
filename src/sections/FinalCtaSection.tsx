@@ -12,7 +12,13 @@ export function FinalCtaSection() {
           ))}
         </h2>
         <p>{siteContent.finalCta.subtitle}</p>
-        <CTAButton href="#messines">{siteContent.finalCta.button}</CTAButton>
+        <CTAButton
+          href={siteContent.brand.instagramUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {siteContent.finalCta.button}
+        </CTAButton>
       </div>
     </section>
   )
