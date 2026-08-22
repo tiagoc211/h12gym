@@ -23,10 +23,6 @@ export function useSmoothScroll(): void {
       touchMultiplier: 1,
     })
 
-    const driver = { value: 0 }
-    const timeline = gsap.timeline({ paused: true })
-    timeline.to(driver, { value: 1, duration: 1, ease: 'none' })
-
     const onTick = (time: number) => {
       lenis.raf(time * 1000)
     }
@@ -35,40 +31,47 @@ export function useSmoothScroll(): void {
       lenis.resize()
     }
 
+    const onViewportResize = () => {
+      ScrollTrigger.refresh()
+    }
+
+    const updateProgress = (value: number) => {
+      const progress = clamp(value)
+      setScrollProgress(progress)
+      document.documentElement.style.setProperty(
+        '--scroll-progress',
+        progress.toFixed(4),
+      )
+    }
+
     lenis.on('scroll', ScrollTrigger.update)
     gsap.ticker.add(onTick)
     gsap.ticker.lagSmoothing(0)
     ScrollTrigger.addEventListener('refresh', onRefresh)
 
+    const immersiveTrack = document.querySelector<HTMLElement>('.immersive-track')
+
     const trigger = ScrollTrigger.create({
-      trigger: document.body,
-      start: 0,
-      end: () => ScrollTrigger.maxScroll(window),
+      trigger: immersiveTrack ?? document.body,
+      start: 'top top',
+      end: 'bottom top',
       scrub: 1.25,
       onUpdate: (self) => {
-        timeline.progress(clamp(self.progress))
-        const cinematicSpan = 0.42
-        const progress = clamp(driver.value / cinematicSpan)
-        setScrollProgress(progress)
-        document.documentElement.style.setProperty(
-          '--scroll-progress',
-          progress.toFixed(4),
-        )
+        updateProgress(self.progress)
       },
     })
 
+    window.visualViewport?.addEventListener('resize', onViewportResize)
     ScrollTrigger.refresh()
-    setScrollProgress(0)
-    document.documentElement.style.setProperty('--scroll-progress', '0')
+    updateProgress(0)
 
     return () => {
       trigger.kill()
-      timeline.kill()
+      window.visualViewport?.removeEventListener('resize', onViewportResize)
       ScrollTrigger.removeEventListener('refresh', onRefresh)
       gsap.ticker.remove(onTick)
       lenis.destroy()
-      setScrollProgress(0)
-      document.documentElement.style.setProperty('--scroll-progress', '0')
+      updateProgress(0)
     }
   }, [])
 }
