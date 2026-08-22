@@ -47,26 +47,26 @@ export const gymLayout = {
       { id: 'bench-far', position: [-4.5, 0.42, -29.2], rotation: [0, 0.34, 0] },
     ] satisfies EquipmentBlock[],
     lowerBackBenches: [
-      { id: 'lower-back-corridor-right', position: [6.55, 0.46, -5.8], rotation: [0, -0.22, 0] },
+      { id: 'lower-back-corridor-right', position: [7.25, 0.46, -5.8], rotation: [0, -0.22, 0] },
       { id: 'lower-back-rear-left', position: [2.35, 0.46, -23.6], rotation: [0, 0.18, 0] },
     ] satisfies EquipmentBlock[],
     treadmills: [
-      { id: 'low-poly-treadmill-corridor-right', position: [6.9, 0.18, 2.8], rotation: [0, -0.08, 0] },
-      { id: 'low-poly-treadmill-rear-right', position: [6.85, 0.18, -2.0], rotation: [0, -0.04, 0] },
+      { id: 'low-poly-treadmill-corridor-right', position: [7.55, 0.18, 2.8], rotation: [0, -0.08, 0] },
+      { id: 'low-poly-treadmill-rear-right', position: [7.5, 0.18, -2.0], rotation: [0, -0.04, 0] },
     ] satisfies EquipmentBlock[],
     pulldownMachines: [
       { id: 'arm-pulldown-corridor-left', position: [2.25, 1.12, -7.9], rotation: [0, 0.08, 0] },
-      { id: 'arm-pulldown-corridor-right', position: [6.75, 1.12, -12.3], rotation: [0, -0.14, 0] },
+      { id: 'arm-pulldown-corridor-right', position: [7.45, 1.12, -12.3], rotation: [0, -0.14, 0] },
     ] satisfies EquipmentBlock[],
     exerciseBikes: [
-      { id: 'reebok-bike-corridor-right', position: [6.8, 0.62, -16.2], rotation: [0, -0.1, 0] },
+      { id: 'reebok-bike-corridor-right', position: [7.5, 0.62, -16.2], rotation: [0, -0.1, 0] },
       { id: 'reebok-bike-front-left', position: [2.35, 0.62, 3.8], rotation: [0, 0.12, 0] },
     ] satisfies EquipmentBlock[],
     dumbbellRacks: [
       { id: 'upper-dumbbell-rack', position: [-8.5, 0.55, 6.8], rotation: [0, 0.06, 0] },
-      { id: 'right-dumbbell-rack-1', position: [8.3, 0.55, -20.6], rotation: [0, -0.1, 0] },
-      { id: 'right-dumbbell-rack-2', position: [8.35, 0.55, -25.0], rotation: [0, -0.11, 0] },
-      { id: 'lower-dumbbell-rack', position: [8.4, 0.55, -29.4], rotation: [0, -0.12, 0] },
+      { id: 'right-dumbbell-rack-1', position: [8.75, 0.55, -20.6], rotation: [0, -0.1, 0] },
+      { id: 'right-dumbbell-rack-2', position: [8.8, 0.55, -25.0], rotation: [0, -0.11, 0] },
+      { id: 'lower-dumbbell-rack', position: [8.85, 0.55, -29.4], rotation: [0, -0.12, 0] },
     ] satisfies EquipmentBlock[],
     freeDumbbells: [
       { id: 'compact-dumbbell-entry', position: [-3.6, 0.24, 1.35], rotation: [0, 0.45, 0] },
