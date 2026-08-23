@@ -1,4 +1,5 @@
 import { SignPanel } from './SignPanel'
+import { MeshPhysicalMaterial } from 'three'
 import { gymLayout } from '../../../config/gymLayout'
 import { ArchitecturalShaders } from './ArchitecturalShaders'
 import { Ceiling } from './Ceiling'
@@ -11,6 +12,20 @@ const foregroundBars = [
   [-6.7, 1.5, 1.8],
   [-4.85, 1.4, -6.2],
 ] as const
+
+const rightWallGlassMaterial = new MeshPhysicalMaterial({
+  color: '#8b9298',
+  emissive: '#25292d',
+  emissiveIntensity: 0.16,
+  transparent: true,
+  opacity: 0.38,
+  transmission: 0.58,
+  thickness: 0.08,
+  ior: 1.45,
+  roughness: 0.16,
+  metalness: 0.04,
+  depthWrite: false,
+})
 
 export function Architecture() {
   const { shell } = gymLayout
@@ -100,7 +115,7 @@ export function Architecture() {
 
       <mesh position={[10.78, 2.1, -24.2]}>
         <boxGeometry args={[0.04, 1.9, 6.8]} />
-        <meshStandardMaterial color="#151515" roughness={0.38} metalness={0.78} />
+        <primitive object={rightWallGlassMaterial} attach="material" />
       </mesh>
 
       <group position={[-10.72, 2.55, 8]} rotation={[0, Math.PI / 2, 0]}>

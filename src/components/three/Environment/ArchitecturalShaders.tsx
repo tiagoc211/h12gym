@@ -49,8 +49,8 @@ const windowFragmentShader = /* glsl */ `
     float bars = step(0.93, fract(uv.x * 5.0)) * 0.22;
     float alpha = (0.58 + sweep * 0.18 + bars) * verticalBand * sideFade;
 
-    vec3 coldLight = vec3(0.72, 0.84, 1.0);
-    vec3 warmEdge = vec3(1.0, 0.78, 0.18);
+    vec3 coldLight = vec3(0.58, 0.6, 0.62);
+    vec3 warmEdge = vec3(0.78, 0.78, 0.76);
     vec3 color = mix(coldLight, warmEdge, bars * 0.35);
     gl_FragColor = vec4(color, alpha);
   }
@@ -122,8 +122,8 @@ function WindowGlass({ z }: { z: number }) {
       <mesh position={[0, 0, -0.018]}>
         <planeGeometry args={[7.45, 1.2, 1, 1]} />
         <meshStandardMaterial
-          color="#9fc5ff"
-          emissive="#6f98d8"
+          color="#8b8f94"
+          emissive="#3e4247"
           emissiveIntensity={0.24}
           transparent
           opacity={0.22}
@@ -154,7 +154,13 @@ function WindowGlass({ z }: { z: number }) {
 
       <mesh position={[0, -1.18, 0.02]} rotation={[Math.PI / 2, 0, 0]}>
         <planeGeometry args={[7.0, 3.8, 1, 1]} />
-        <meshBasicMaterial color="#8fb7ff" transparent opacity={0.055} blending={THREE.AdditiveBlending} side={THREE.DoubleSide} />
+        <meshBasicMaterial
+          color="#8b8f94"
+          transparent
+          opacity={0.18}
+          blending={THREE.NormalBlending}
+          side={THREE.DoubleSide}
+        />
       </mesh>
 
       <mesh position={[0, 0.68, 0.02]}>
