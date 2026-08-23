@@ -11,12 +11,10 @@ export function HeroOverlay() {
     const exit = smooth(range(progress, 0.02, 0.12))
     const opacity = 1 - exit
     const translateY = -48 * exit
-    const spacing = 0.22 + 0.14 * exit
 
     return {
       opacity,
       transform: `translate3d(-50%, ${translateY}px, 0)`,
-      letterSpacing: `${spacing}em`,
     }
   }, [progress])
 

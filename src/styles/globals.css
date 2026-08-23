@@ -105,6 +105,7 @@ a {
   font-size: clamp(4rem, 22vw, 15rem);
   line-height: 0.82;
   font-weight: 800;
+  letter-spacing: 0.04em;
 }
 
 .hero-subtitle {
@@ -1146,7 +1147,26 @@ a {
   }
 
   .hero-overlay {
-    top: clamp(7rem, 16vh, 9rem);
+    top: clamp(5.5rem, 12vh, 7rem);
+    width: min(92vw, 30rem);
+    gap: 0.55rem;
+  }
+
+  .hero-description {
+    max-width: 34ch;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-subtitle {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
   }
 
   .hero-actions .cta-button {
@@ -1166,6 +1186,10 @@ a {
   .clubs-grid,
   .benefits-grid,
   .areas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .concept-section .benefits-grid {
     grid-template-columns: 1fr;
   }
 

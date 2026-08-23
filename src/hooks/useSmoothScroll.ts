@@ -49,10 +49,10 @@ export function useSmoothScroll(): void {
     gsap.ticker.lagSmoothing(0)
     ScrollTrigger.addEventListener('refresh', onRefresh)
 
-    const immersiveTrack = document.querySelector<HTMLElement>('.immersive-track')
+    const heroSpacer = document.querySelector<HTMLElement>('.hero-spacer')
 
     const trigger = ScrollTrigger.create({
-      trigger: immersiveTrack ?? document.body,
+      trigger: heroSpacer ?? document.body,
       start: 'top top',
       end: 'bottom top',
       scrub: 1.25,
