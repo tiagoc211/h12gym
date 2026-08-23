@@ -7,11 +7,19 @@ import { cameraPath } from '../../config/cameraPath'
 
 export function Experience() {
   const initialCamera = cameraPath[0]
+  const isMobile =
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 900px)').matches
+  const navigatorInfo = typeof navigator !== 'undefined' ? navigator : undefined
+  const cpuCores = navigatorInfo?.hardwareConcurrency ?? 8
+  const deviceMemory = Number(
+    (navigatorInfo as (Navigator & { deviceMemory?: number }) | undefined)?.deviceMemory ?? 8,
+  )
+  const isLowPower = isMobile || cpuCores <= 4 || deviceMemory <= 4
 
   return (
     <Canvas
-      dpr={[1, 1.5]}
-      gl={{ antialias: true, powerPreference: 'high-performance' }}
+      dpr={isLowPower ? [0.7, 1] : [0.85, 1.25]}
+      gl={{ antialias: !isLowPower, powerPreference: 'high-performance' }}
     >
       <PerspectiveCamera
         makeDefault
@@ -26,11 +34,11 @@ export function Experience() {
 
       <color attach="background" args={['#050505']} />
       <fog attach="fog" args={['#050505', 44, 92]} />
-      <ambientLight intensity={0.1} />
+      <ambientLight intensity={0.16} />
 
       <PlaceholderGym />
       <CameraRig />
-      <PostProcessing />
+      <PostProcessing mobile={isLowPower} />
     </Canvas>
   )
 }

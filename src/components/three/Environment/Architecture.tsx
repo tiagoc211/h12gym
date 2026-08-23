@@ -104,11 +104,16 @@ export function Architecture() {
       </mesh>
 
       <group position={[-10.72, 2.55, 8]} rotation={[0, Math.PI / 2, 0]}>
-        <SignPanel primary="H12" secondary="MESSINES" width={4.2} />
+        <SignPanel primary="H12" secondary="MESSINES" width={4.2} accent="#f2c230" />
       </group>
 
       <group position={[10.72, 2.55, -7.4]} rotation={[0, -Math.PI / 2, 0]}>
-        <SignPanel primary="H12" secondary="MOVE WITH PURPOSE." width={5.1} />
+        <SignPanel
+          primary="H12"
+          secondary="MOVE WITH PURPOSE."
+          width={5.1}
+          accent="#f2c230"
+        />
       </group>
     </group>
   )

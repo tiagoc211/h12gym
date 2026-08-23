@@ -5,9 +5,9 @@ const stripZ = [7.5, 1.4, -4.7, -10.8, -16.9, -23, -29.1] as const
 export function GymLights() {
   return (
     <group>
-      <hemisphereLight intensity={0.28} color="#dbe6ff" groundColor="#050505" />
+      <hemisphereLight intensity={0.36} color="#dbe6ff" groundColor="#050505" />
 
-      <Environment resolution={64}>
+      <Environment resolution={32}>
         <Lightformer
           form="rect"
           intensity={1.8}
