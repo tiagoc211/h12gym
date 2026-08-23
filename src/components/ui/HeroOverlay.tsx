@@ -15,7 +15,7 @@ export function HeroOverlay() {
 
     return {
       opacity,
-      transform: `translate3d(0, ${translateY}px, 0)`,
+      transform: `translate3d(-50%, ${translateY}px, 0)`,
       letterSpacing: `${spacing}em`,
     }
   }, [progress])

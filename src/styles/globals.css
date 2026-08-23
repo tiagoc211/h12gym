@@ -8,8 +8,8 @@
   --bg-0: #050505;
   --bg-1: #090909;
   --bg-2: #111111;
-  --surface: rgba(10, 10, 10, 0.9);
-  --surface-strong: rgba(15, 15, 15, 0.94);
+  --surface: rgba(10, 10, 10, 0.68);
+  --surface-strong: rgba(15, 15, 15, 0.76);
   --border: rgba(255, 255, 255, 0.12);
   --text: #ffffff;
   --muted: rgba(255, 255, 255, 0.72);
@@ -84,12 +84,15 @@ a {
 
 .hero-overlay {
   position: absolute;
-  left: clamp(1rem, 4vw, 4rem);
-  top: clamp(1rem, 5vh, 3.5rem);
+  left: 50%;
+  top: clamp(8rem, 18vh, 11rem);
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: clamp(0.45rem, 1vh, 1rem);
+  width: min(90vw, 52rem);
+  text-align: center;
 }
 
 .hero-kicker {
@@ -439,10 +442,10 @@ a {
   overflow: clip;
   background: linear-gradient(
     180deg,
-    rgba(5, 5, 5, 0.18) 0%,
-    rgba(5, 5, 5, 0.88) 4%,
-    rgba(5, 5, 5, 0.96) 40%,
-    rgba(5, 5, 5, 0.99) 100%
+    rgba(5, 5, 5, 0.08) 0%,
+    rgba(5, 5, 5, 0.38) 4%,
+    rgba(5, 5, 5, 0.58) 40%,
+    rgba(5, 5, 5, 0.72) 100%
   );
   pointer-events: auto;
 }
@@ -539,6 +542,66 @@ a {
   margin: 0 auto;
   padding: clamp(3.2rem, 9vh, 6rem) 0;
   scroll-margin-top: 5rem;
+}
+
+.content-surface > .site-section:nth-of-type(1) {
+  width: min(760px, calc(100% - 2rem));
+  margin-left: clamp(1rem, 8vw, 9rem);
+  margin-right: auto;
+}
+
+.content-surface > .site-section:nth-of-type(2) {
+  width: min(860px, calc(100% - 2rem));
+  margin-left: auto;
+  margin-right: clamp(1rem, 8vw, 9rem);
+}
+
+.content-surface > .site-section:nth-of-type(3) {
+  width: min(940px, calc(100% - 2rem));
+}
+
+.content-surface > .site-section:nth-of-type(4) {
+  width: min(720px, calc(100% - 2rem));
+  margin-left: clamp(1rem, 12vw, 13rem);
+  margin-right: auto;
+}
+
+.content-surface > .site-section:nth-of-type(5) {
+  width: min(820px, calc(100% - 2rem));
+  margin-left: auto;
+  margin-right: clamp(1rem, 12vw, 13rem);
+}
+
+.content-surface > .site-section:nth-of-type(6) {
+  width: min(1040px, calc(100% - 2rem));
+}
+
+.content-surface > .site-section:nth-of-type(7) {
+  width: min(900px, calc(100% - 2rem));
+  margin-left: clamp(1rem, 7vw, 8rem);
+  margin-right: auto;
+}
+
+.content-surface > .site-section:nth-of-type(8) {
+  width: min(760px, calc(100% - 2rem));
+  margin-left: auto;
+  margin-right: clamp(1rem, 10vw, 11rem);
+}
+
+.content-surface > .site-section:nth-of-type(9) {
+  width: min(960px, calc(100% - 2rem));
+}
+
+.content-surface > .site-section:nth-of-type(10) {
+  width: min(820px, calc(100% - 2rem));
+  margin-left: clamp(1rem, 10vw, 11rem);
+  margin-right: auto;
+}
+
+.content-surface > .site-section:nth-of-type(11) {
+  width: min(780px, calc(100% - 2rem));
+  margin-left: auto;
+  margin-right: clamp(1rem, 8vw, 9rem);
 }
 
 .site-section h2 {
@@ -915,7 +978,7 @@ a {
   border: 1px solid rgba(242, 194, 48, 0.46);
   background:
     linear-gradient(135deg, rgba(242, 194, 48, 0.14), rgba(255, 255, 255, 0.03)),
-    rgba(10, 10, 10, 0.92);
+    rgba(10, 10, 10, 0.72);
   padding: clamp(1.2rem, 4vw, 2.4rem);
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -1082,6 +1145,10 @@ a {
     font-size: clamp(3.6rem, 28vw, 7.6rem);
   }
 
+  .hero-overlay {
+    top: clamp(7rem, 16vh, 9rem);
+  }
+
   .hero-actions .cta-button {
     min-height: 2.2rem;
     font-size: 0.66rem;
@@ -1122,6 +1189,23 @@ a {
 
   .feedback-panel blockquote {
     max-width: 100%;
+  }
+
+  .content-surface > .site-section,
+  .content-surface > .site-section:nth-of-type(1),
+  .content-surface > .site-section:nth-of-type(2),
+  .content-surface > .site-section:nth-of-type(3),
+  .content-surface > .site-section:nth-of-type(4),
+  .content-surface > .site-section:nth-of-type(5),
+  .content-surface > .site-section:nth-of-type(6),
+  .content-surface > .site-section:nth-of-type(7),
+  .content-surface > .site-section:nth-of-type(8),
+  .content-surface > .site-section:nth-of-type(9),
+  .content-surface > .site-section:nth-of-type(10),
+  .content-surface > .site-section:nth-of-type(11) {
+    width: calc(100% - 2rem);
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
